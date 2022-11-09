@@ -24,8 +24,10 @@ The website will be upscale to reflect the high quality product and services the
 
 ## Build Methodology
 
-A website of this complexity can quickly become heavy and weighed down with code bloat. The quickest way to deliver in keeping with agile methodology will be to start with one section at a time, filter down to the smallest possible components and then build backup until the page is complete. This will ensure maximum code re-use in keeping with DRY methodologies. CSS pre-processors won't be used but global styles will be provided by plain old CSS and local stylingto each component will be provided by JavaScript style imports.
+A website of this complexity can quickly become heavy and weighed down with code bloat. The quickest way to deliver in keeping with agile methodology will be to start with one section at a time, filter down to the smallest possible components and then build backup until the page is complete, section by section. This will ensure maximum code re-use in keeping with the DRY methodology. CSS pre-processors won't be used but global styles will be provided by plain old CSS and local stylingto each component will be provided by JavaScript style imports.
 
 Web acessability is maintained in this website by using semantic html to build the individual components as well as the page layouts. Some components may not seem semantically pure but they are built with the overall layout in mind so that the final rendered page is as acessible as it can be and doesn't suffer from overly complicated tree structures. Ultimately it will be the final page structure that will be read by screen readers and not the individual components themselves.
 
 Minimal libraries will be used in order to keep the site as lean as possible and a strong emphasis is placed on reactivity (otherwise what would the point of using React be...).
+
+So, without further ado, it's time to get on with it.
