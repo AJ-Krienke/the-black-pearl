@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# The Black Pearl Fine Dining Restaurant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Concept
 
-## Available Scripts
+This will be a multifunctional website to showcase the various skills and concepts I understand as well as to show my process for building a website.
 
-In the project directory, you can run:
+The website will be multifunctional in the following way:
 
-### `npm start`
+### Landing Page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The landing page will be the page a user will arrive on when not logged in. The purpose of this page is to provide any visitors with the information they would be looking for on first contact with the site. The secondary purpose of the landing page is to encourage users to sign up and become members of the website to further improve marketing campaigns. To further incentivize users to sign up, there will be several member only benefts and events that are exclusively for members.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Member Page
 
-### `npm test`
+The member page will be to provide exclusive access to certain benefits and events and also offer wine or cocktail recommendations to members (based either on a menu item or to customer tastes based on a series of questions).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Crew Page
 
-### `npm run build`
+The crew page will be where a crew member will manage their tables, print checks, ring items up, and remove items from the checks. It will be a simple interface with large button and be optimized for speed of use so that the crew members will be able to waste little time on the point of sale.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The website will be upscale to reflect the high quality product and services the restaurant offers. The restaurant is of course completely fictional. This style of website was chosen because it is very challenging to make a website that is both creative, and upmarket.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Build Methodology
 
-### `npm run eject`
+A website of this complexity can quickly become heavy and weighed down with code bloat. The quickest way to deliver in keeping with agile methodology will be to start with one section at a time, filter down to the smallest possible components and then build backup until the page is complete. This will ensure maximum code re-use in keeping with DRY methodologies. CSS pre-processors won't be used but global styles will be provided by plain old CSS and local stylingto each component will be provided by JavaScript style imports.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Web acessability is maintained in this website by using semantic html to build the individual components as well as the page layouts. Some components may not seem semantically pure but they are built with the overall layout in mind so that the final rendered page is as acessible as it can be and doesn't suffer from overly complicated tree structures. Ultimately it will be the final page structure that will be read by screen readers and not the individual components themselves.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Minimal libraries will be used in order to keep the site as lean as possible and a strong emphasis is placed on reactivity (otherwise what would the point of using React be...).
