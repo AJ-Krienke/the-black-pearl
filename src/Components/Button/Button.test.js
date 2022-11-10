@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import Button from './Button';
 
 describe('Button component', () => {
-  test('renders passed text', () => {
+  it('renders passed text', () => {
     render(
       <Button
         type='submit'
@@ -16,7 +16,7 @@ describe('Button component', () => {
     expect(buttonElement).toHaveTextContent('Test');
   });
 
-  test('renders passed type', () => {
+  it('renders passed type', () => {
     render(
       <Button
         type='radio'
@@ -29,7 +29,7 @@ describe('Button component', () => {
     expect(buttonElement).toHaveAttribute('type', 'radio');
   });
 
-  test('renders passed classes', () => {
+  it('renders passed classes', () => {
     render(<Button className='testClass' />);
 
     const buttonElement = screen.getByRole('button');
@@ -37,7 +37,7 @@ describe('Button component', () => {
     expect(buttonElement).toHaveClass('testClass');
   });
 
-  test('renders passed custom attributes', () => {
+  it('renders passed custom attributes', () => {
     render(<Button attributes={{ pyjamas: 'on' }} />);
 
     const buttonElement = screen.getByRole('button');
@@ -45,5 +45,5 @@ describe('Button component', () => {
     expect(buttonElement).toHaveAttribute('pyjamas', 'on');
   });
 
-  test.todo('renders passed boolean attributes');
+  it.todo('renders passed boolean attributes');
 });
