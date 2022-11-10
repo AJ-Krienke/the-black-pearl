@@ -1,6 +1,6 @@
-import Header from '../sections/Header/Header';
-import MainContent from '../sections/MainContent/MainContent';
-import Footer from '../sections/Footer/Footer';
+import Header from '../pageSections/Header/Header';
+import MainContent from '../pageSections/MainContent/MainContent';
+import Footer from '../pageSections/Footer/Footer';
 import React from 'react';
 
 const Layout = props => {
