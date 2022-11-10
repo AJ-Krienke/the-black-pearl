@@ -6,8 +6,12 @@ import Hero from '../../sections/Hero/Hero';
 const Header = props => {
   return (
     <React.Fragment>
-      <Navigation />
-      <Hero />
+      <nav>
+        <Navigation />
+      </nav>
+      <section>
+        <Hero />
+      </section>
     </React.Fragment>
   );
 };
