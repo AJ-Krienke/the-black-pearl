@@ -4,7 +4,7 @@ const Button = props => {
   return (
     <React.Fragment>
       <button
-        attributes={props.attributes}
+        {...props.attributes}
         className={props.className}
         type={props.type}
       >

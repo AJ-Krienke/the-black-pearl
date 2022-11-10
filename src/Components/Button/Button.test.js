@@ -29,6 +29,14 @@ describe('Button component', () => {
     expect(buttonElement).toHaveAttribute('type', 'radio');
   });
 
+  test('renders passed classes', () => {
+    render(<Button className='testClass' />);
+
+    const buttonElement = screen.getByRole('button');
+
+    expect(buttonElement).toHaveClass('testClass');
+  });
+
   test('renders passed custom attributes', () => {
     render(<Button attributes={{ pyjamas: 'on' }} />);
 
@@ -37,19 +45,5 @@ describe('Button component', () => {
     expect(buttonElement).toHaveAttribute('pyjamas', 'on');
   });
 
-  test('renders passed boolean attributes', () => {
-    render(<Button attributes={'disabled'} />);
-
-    const buttonElement = screen.getByRole('button');
-
-    expect(buttonElement).toBeDisabled();
-  });
-
-  test('renders passed classes', () => {
-    render(<Button className='testClass' />);
-
-    const buttonElement = screen.getByRole('button');
-
-    expect(buttonElement).toHaveClass('testClass');
-  });
+  test.todo('renders passed boolean attributes');
 });
