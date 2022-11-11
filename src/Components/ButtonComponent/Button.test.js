@@ -42,5 +42,9 @@ describe('Button component', () => {
     expect(buttonElement()).toHaveAttribute('pyjamas', 'on');
   });
 
-  it.todo('renders passed boolean attributes');
+  it('renders passed boolean attributes', () => {
+    render(<Button disabled />);
+
+    expect(buttonElement()).toBeDisabled(true);
+  });
 });
