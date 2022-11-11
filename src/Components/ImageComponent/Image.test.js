@@ -10,7 +10,13 @@ describe('Image component', () => {
     expect(imageElement).toBeInTheDocument();
   });
 
-  it.todo('renders correct source');
+  it('renders correct source', () => {
+    render(<Image src='./test-picture.jpg' />);
+
+    const imageElement = screen.getByRole('img');
+
+    expect(imageElement).toHaveAttribute('src', 'test-picture.jpg');
+  });
 
   it('renders alt text', () => {
     render(<Image alt='test text' />);
