@@ -32,9 +32,24 @@ describe('Image component', () => {
     expect(imageElement()).toHaveClass('testClass');
   });
 
-  it.todo('renders passed attributes');
+  it('renders passed attributes', () => {
+    render(
+      <Image
+        src={imageSource}
+        attributes={{
+          style: { backgroundColor: 'red' },
+        }}
+      />
+    );
 
-  it.todo('renders custom attributes');
+    expect(imageElement()).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('renders custom attributes', () => {
+    render(<Image attributes={{ pancakes: 'tasty' }} />);
+
+    expect(imageElement()).toHaveAttribute('pancakes', 'tasty');
+  });
 
   it.todo('renders boolean attributes');
 });

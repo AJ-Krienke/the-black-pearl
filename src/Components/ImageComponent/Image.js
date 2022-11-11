@@ -1,9 +1,9 @@
 const Image = props => {
   return (
     <img
-      lazy={true}
-      src={props.src}
       {...props.attributes}
+      lazy
+      src={props.src}
       alt={props.alt}
       className={props.className}
     />
