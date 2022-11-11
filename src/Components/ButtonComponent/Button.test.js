@@ -2,6 +2,11 @@ import { render, screen } from '@testing-library/react';
 
 import Button from './Button';
 
+const buttonElement = () => {
+  const buttonEl = screen.getByRole('button');
+  return buttonEl;
+};
+
 describe('Button component', () => {
   it('renders passed text', () => {
     render(
@@ -11,9 +16,7 @@ describe('Button component', () => {
       />
     );
 
-    const buttonElement = screen.getByRole('button');
-
-    expect(buttonElement).toHaveTextContent('Test');
+    expect(buttonElement()).toHaveTextContent('Test');
   });
 
   it('renders passed type', () => {
@@ -24,25 +27,19 @@ describe('Button component', () => {
       />
     );
 
-    const buttonElement = screen.getByRole('button');
-
-    expect(buttonElement).toHaveAttribute('type', 'radio');
+    expect(buttonElement()).toHaveAttribute('type', 'radio');
   });
 
   it('renders passed classes', () => {
     render(<Button className='testClass' />);
 
-    const buttonElement = screen.getByRole('button');
-
-    expect(buttonElement).toHaveClass('testClass');
+    expect(buttonElement()).toHaveClass('testClass');
   });
 
   it('renders passed custom attributes', () => {
     render(<Button attributes={{ pyjamas: 'on' }} />);
 
-    const buttonElement = screen.getByRole('button');
-
-    expect(buttonElement).toHaveAttribute('pyjamas', 'on');
+    expect(buttonElement()).toHaveAttribute('pyjamas', 'on');
   });
 
   it.todo('renders passed boolean attributes');
