@@ -13,6 +13,11 @@ body {
   font-family: var(--text-font);
 }
 
+section {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
 p {
   max-width: 80ch;
   font-size: 1.6rem;

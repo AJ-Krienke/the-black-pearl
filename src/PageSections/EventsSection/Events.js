@@ -1,0 +1,78 @@
+import styles from './Events.module.css';
+
+const Events = props => {
+  return (
+    <section>
+      <h2>Upcoming Events</h2>
+      <h3>
+        By signing up for a free membership, you will get access to these
+        exclusive member only events
+      </h3>
+      <div
+        className={`${styles['event-wrapper']} grid grid--2col`}
+        role='presentation'
+      >
+        <div
+          className={`${styles['event-card']} chef-class`}
+          role='presentation'
+        >
+          <h4>Chef Class</h4>
+          <time datetime='2053-06-20T18-30-00'>June 20 @ 6:30pm</time>
+          <p>
+            Join our head chef Basil for a chance to learn to cook like the
+            pro's
+          </p>
+          <p>Limited space available so be sure to book early</p>
+        </div>
+        <div
+          className={`${styles['event-card']} cocktail-class`}
+          role='presentation'
+        >
+          <h4>Cocktail Master Class</h4>
+          <time datetime='2053-06-27T18-30-00'>June 7 @ 6:30pm</time>
+          <p>
+            Join our master mixologist Salty to learn how to make your own
+            cocktails at home
+          </p>
+          <p>
+            No experience needed to be able to enjoy this class. We will teach
+            you everything you need to know to be able to start making cocktails
+            which will impress anyone who comes to visit
+          </p>
+        </div>
+        <div
+          className={`${styles['event-card']} social-media-class`}
+          role='presentation'
+        >
+          <h4>Social Media Workshop</h4>
+          <time datetime='2053-07-03T18-30-00'>July 03 @ 6:30pm</time>
+          <p>
+            Join us to learn tricks of the trade to market your product, your
+            idea, or even yourself on social media
+          </p>
+          <p>
+            In this class you will learn valuable basics like marketing, design,
+            and content creation to help you better create your space on the web
+          </p>
+        </div>
+        <div
+          className={`${styles['event-card']} wine-class`}
+          role='presentation'
+        >
+          <h4>World of Wine</h4>
+          <time datetime='2053-07-10T18-30-00'>July 10 @ 6:30pm</time>
+          <p>
+            Climb aboard with our Sommellier, Brandy as you explore the world of
+            wines
+          </p>
+          <p>
+            Your new found knowledge will enable you to hold your own
+            inconversations with even the most fickle wine enthusiasts
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Events;

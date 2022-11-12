@@ -4,6 +4,7 @@ import './index.css';
 
 import Hero from './PageSections/HeroSection/Hero';
 import Intro from './PageSections/IntroSection/Intro';
+import Events from './PageSections/EventsSection/Events';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     </header>
     <main>
       <Intro />
+      <Events />
     </main>
   </React.StrictMode>
 );
