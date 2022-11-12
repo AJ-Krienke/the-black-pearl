@@ -36,9 +36,7 @@ describe('Image component', () => {
     render(
       <Image
         src={imageSource}
-        attributes={{
-          style: { backgroundColor: 'red' },
-        }}
+        style={{ backgroundColor: 'red' }}
       />
     );
 
@@ -46,10 +44,19 @@ describe('Image component', () => {
   });
 
   it('renders custom attributes', () => {
-    render(<Image attributes={{ pancakes: 'tasty' }} />);
+    render(<Image pancakes='tasty' />);
 
     expect(imageElement()).toHaveAttribute('pancakes', 'tasty');
   });
 
-  it.todo('renders boolean attributes');
+  it('renders boolean attributes', () => {
+    render(
+      <Image
+        src={imageSource}
+        crossOrigin='true'
+      />
+    );
+
+    expect(imageElement()).toHaveAttribute('crossorigin');
+  });
 });

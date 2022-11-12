@@ -1,8 +1,8 @@
 const Image = props => {
   return (
     <img
-      {...props.attributes}
-      lazy
+      lazy='true'
+      {...props}
       src={props.src}
       alt={props.alt}
       className={props.className}

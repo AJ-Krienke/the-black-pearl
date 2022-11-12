@@ -5,6 +5,10 @@ html {
   --text-font: 'Lora', serif;
 }
 
+body {
+  margin: 0;
+}
+
 button {
   /* lower specificity means button styles can be overridden easily
      Ensure min guidlines for WCAG 2.0 */

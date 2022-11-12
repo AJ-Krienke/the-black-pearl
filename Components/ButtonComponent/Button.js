@@ -4,9 +4,8 @@ const Button = props => {
   return (
     <React.Fragment>
       <button
-        lazy={true}
-        disabled={props.disabled}
-        {...props.attributes}
+        lazy
+        {...props}
         className={props.className}
         type={props.type}
       >

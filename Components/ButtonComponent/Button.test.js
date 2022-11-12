@@ -37,7 +37,7 @@ describe('Button component', () => {
   });
 
   it('renders passed custom attributes', () => {
-    render(<Button attributes={{ pyjamas: 'on' }} />);
+    render(<Button pyjamas='on' />);
 
     expect(buttonElement()).toHaveAttribute('pyjamas', 'on');
   });
@@ -45,6 +45,6 @@ describe('Button component', () => {
   it('renders passed boolean attributes', () => {
     render(<Button disabled />);
 
-    expect(buttonElement()).toBeDisabled(true);
+    expect(buttonElement()).toBeDisabled();
   });
 });
