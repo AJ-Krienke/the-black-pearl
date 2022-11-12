@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import Hero from './PageSections/HeroSection/Hero';
+import Intro from './PageSections/IntroSection/Intro';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,5 +11,8 @@ root.render(
     <header>
       <Hero />
     </header>
+    <main>
+      <Intro />
+    </main>
   </React.StrictMode>
 );

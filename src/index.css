@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;600;700&family=Mea+Culpa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@100;200;300;500;600;700&family=Mea+Culpa&display=swap');
 
 html {
   --fancy-font: 'Mea Culpa', cursive;
-  --text-font: 'Montserrat', sans-serif;
+  --text-font: 'Taviraj', sans-serif;
   font-size: 62.5%;
   line-height: 1.5;
   box-sizing: border-box;
@@ -15,6 +15,21 @@ body {
 
 p {
   max-width: 80ch;
+  font-size: 1.6rem;
+}
+
+h2 {
+  margin-top: 9.6rem;
+  text-align: center;
+  font-size: 4.8rem;
+  font-weight: 300;
+}
+
+h3 {
+  text-align: center;
+  color: rgb(52, 0, 73);
+  font-size: 1.8rem;
+  margin-bottom: 4rem;
 }
 
 button {
@@ -33,6 +48,13 @@ button {
 }
 
 .grid--hero {
-  grid-template-columns: 33fr 67fr;
-  grid-template-rows: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50vh 50vh;
+}
+
+@media (min-width: 60em) {
+  .grid--hero {
+    grid-template-columns: 33fr 67fr;
+    grid-template-rows: 100vh;
+  }
 }

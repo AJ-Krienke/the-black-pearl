@@ -7,28 +7,29 @@ import styles from './Hero.module.css';
 
 const Hero = () => {
   return (
-    <React.Fragment>
-      <section className='hero-section grid'>
-        <div
-          className={styles['heading-wrapper']}
-          role='presentation'
-        >
-          <h1 className={styles['hero-heading']}>The Black Pearl</h1>
-        </div>
-        <div className={styles['button-wrapper']}>
-          <Button className={styles['call-to-action']}>Become a member</Button>
-        </div>
-        <div
-          className={styles.overlay}
-          role='presentation'
-        ></div>
-        <Image
-          className={styles['hero-image']}
-          src={heroImage}
-          role='presentation'
-        />
-      </section>
-    </React.Fragment>
+    <section className='hero-section grid grid--hero'>
+      <div
+        className={styles['heading-wrapper']}
+        role='presentation'
+      >
+        <h1 className={styles['hero-heading']}>The Black Pearl</h1>
+      </div>
+      <div
+        className={styles['button-wrapper']}
+        role='presentation'
+      >
+        <Button className={styles['call-to-action']}>Become a member</Button>
+      </div>
+      <div
+        className={styles.overlay}
+        role='presentation'
+      ></div>
+      <Image
+        className={styles['hero-image']}
+        src={heroImage}
+        role='presentation'
+      />
+    </section>
   );
 };
 

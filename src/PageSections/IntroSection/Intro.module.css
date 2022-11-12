@@ -1,0 +1,25 @@
+.intro-wrapper {
+  display: flex;
+  padding: 1.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-text-wrapper {
+  width: 50vw;
+}
+
+figure {
+  border: 1px solid black;
+  padding: 2rem;
+}
+
+figcaption {
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+img {
+  margin: 0.4rem;
+  border: 1px solid black;
+}
