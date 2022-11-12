@@ -1,0 +1,68 @@
+.hero-section {
+  margin: 0;
+  height: 100vh;
+  position: relative;
+}
+
+.hero-image {
+  position: absolute;
+  object-fit: stretch;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(
+    125deg,
+    rgba(71, 0, 99, 0.6),
+    rgba(0, 0, 0, 0.6) 35%
+  );
+  z-index: -1;
+}
+
+.hero-heading {
+  position: absolute;
+  top: 45%;
+  left: -15rem;
+  margin: 0;
+  padding: 0 3rem;
+  font-family: var(--fancy-font);
+  font-size: 6.2rem;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.5rem;
+  color: rgba(255, 217, 0, 0.75);
+  transform: rotate(-90deg);
+}
+
+.heading-wrapper {
+  grid-column: 1 / 2;
+}
+
+.button-wrapper {
+  grid-column: 2 / -1;
+  display: grid;
+}
+
+.call-to-action {
+  font-family: var(--text-font);
+  font-size: 2.6rem;
+  font-weight: 200;
+  letter-spacing: 0.05rem;
+  color: white;
+  background-color: black;
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(161, 0, 224, 0.6),
+    rgba(110, 0, 153, 0.486)
+  );
+  padding: 1.8rem 2.8rem;
+  justify-self: end;
+  margin-top: 75vh;
+  margin-right: 20vh;
+}

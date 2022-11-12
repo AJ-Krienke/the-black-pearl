@@ -9,7 +9,7 @@ const Button = props => {
         className={props.className}
         type={props.type}
       >
-        {props.text}
+        {props.text || props.children}
       </button>
     </React.Fragment>
   );

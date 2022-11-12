@@ -1,18 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Mea+Culpa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;600;700&family=Mea+Culpa&display=swap');
 
 html {
   --fancy-font: 'Mea Culpa', cursive;
-  --text-font: 'Lora', serif;
+  --text-font: 'Montserrat', sans-serif;
+  font-size: 62.5%;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  font-family: var(--text-font);
+}
+
+p {
+  max-width: 80ch;
 }
 
 button {
   /* lower specificity means button styles can be overridden easily
      Ensure min guidlines for WCAG 2.0 */
-  min-width: 44px;
-  min-height: 44px;
-  margin: 12px 16px;
+  padding: 14px 22px;
+  margin: 16px;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--hero {
+  grid-template-columns: 33fr 67fr;
+  grid-template-rows: 100vh;
 }
