@@ -2,7 +2,7 @@ import styles from './Events.module.css';
 
 const Events = props => {
   return (
-    <section>
+    <section name='events'>
       <h2>Upcoming Events</h2>
       <h3>
         By signing up for a free membership, you will get access to these
@@ -35,9 +35,9 @@ const Events = props => {
             cocktails at home
           </p>
           <p>
-            No experience needed to be able to enjoy this class. We will teach
-            you everything you need to know to be able to start making cocktails
-            which will impress anyone who comes to visit
+            No experience needed to be able to get the most out of this class.
+            We will teach you everything you need to know to be able to start
+            making cocktails which will impress anyone who comes to visit
           </p>
         </div>
         <div
@@ -47,8 +47,8 @@ const Events = props => {
           <h4>Social Media Workshop</h4>
           <time datetime='2053-07-03T18-30-00'>July 03 @ 6:30pm</time>
           <p>
-            Join us to learn tricks of the trade to market your product, your
-            idea, or even yourself on social media
+            Join us to learn tricks of the trade and to market your product,
+            your idea, or even yourself on social media
           </p>
           <p>
             In this class you will learn valuable basics like marketing, design,
@@ -62,12 +62,12 @@ const Events = props => {
           <h4>World of Wine</h4>
           <time datetime='2053-07-10T18-30-00'>July 10 @ 6:30pm</time>
           <p>
-            Climb aboard with our Sommellier, Brandy as you explore the world of
-            wines
+            Climb aboard with our Sommellier, Brandy, as you explore the world
+            of wines
           </p>
           <p>
-            Your new found knowledge will enable you to hold your own
-            inconversations with even the most fickle wine enthusiasts
+            Your new found knowledge will give you the skills to hold your own
+            in conversations with even the most fickle wine enthusiasts
           </p>
         </div>
       </div>

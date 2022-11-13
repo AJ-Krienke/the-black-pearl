@@ -7,7 +7,10 @@ import styles from './Hero.module.css';
 
 const Hero = () => {
   return (
-    <section className='hero-section grid grid--hero'>
+    <section
+      className='hero-section grid grid--hero'
+      name='Welcome to the Black Pearl'
+    >
       <div
         className={styles['heading-wrapper']}
         role='presentation'

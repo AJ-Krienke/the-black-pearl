@@ -5,6 +5,7 @@ import './index.css';
 import Hero from './PageSections/HeroSection/Hero';
 import Intro from './PageSections/IntroSection/Intro';
 import Events from './PageSections/EventsSection/Events';
+import Gallery from './PageSections/GallerySection/Gallery';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <main>
       <Intro />
       <Events />
+      <Gallery />
     </main>
   </React.StrictMode>
 );

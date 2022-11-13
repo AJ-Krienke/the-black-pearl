@@ -6,7 +6,7 @@ import sommellier from './media/sommellier.webp';
 
 const Intro = props => {
   return (
-    <section>
+    <section name='Introduction'>
       <h2>The Black Pearl</h2>
       <h3>
         At "The Black Pearl" You can expect an experience of class, and a
