@@ -3,6 +3,8 @@ import { useReducer, useState } from 'react';
 import Button from '../../Components/ButtonComponent/Button';
 import Image from '../../Components/ImageComponent/Image';
 
+import FIREBASE_WEB_API_KEY from '../../.env';
+
 import styles from './SignupForm.module.css';
 
 const updateFormState = (state, action) => {
@@ -64,7 +66,20 @@ const SignupForm = props => {
     event.preventDefault();
 
     if (emailIsValid && passwordIsValid && confirmPasswordIsValid) {
-      console.log('Ready for submission');
+      fetch(
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_WEB_API_KEY}`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            email: state.email,
+            password: state.password,
+            returnSecureToken: true,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
     }
   };
 
