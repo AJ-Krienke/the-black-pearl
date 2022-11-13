@@ -21,7 +21,9 @@ const Hero = () => {
         className={styles['button-wrapper']}
         role='presentation'
       >
-        <Button className={styles['call-to-action']}>Become a member</Button>
+        <a href='#signup'>
+          <Button className={styles['call-to-action']}>Become a member</Button>
+        </a>
       </div>
       <div
         className={styles.overlay}
@@ -30,6 +32,7 @@ const Hero = () => {
       <Image
         className={styles['hero-image']}
         src={heroImage}
+        loading='eager'
         role='presentation'
       />
     </section>

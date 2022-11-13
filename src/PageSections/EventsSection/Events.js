@@ -17,7 +17,7 @@ const Events = props => {
           role='presentation'
         >
           <h4>Chef Class</h4>
-          <time datetime='2053-06-20T18-30-00'>June 20 @ 6:30pm</time>
+          <time dateTime='2053-06-20T18-30-00'>June 20 @ 6:30pm</time>
           <p>
             Join our head chef Basil for a chance to learn to cook like the
             pro's
@@ -29,7 +29,7 @@ const Events = props => {
           role='presentation'
         >
           <h4>Cocktail Master Class</h4>
-          <time datetime='2053-06-27T18-30-00'>June 7 @ 6:30pm</time>
+          <time dateTime='2053-06-27T18-30-00'>June 7 @ 6:30pm</time>
           <p>
             Join our master mixologist Salty to learn how to make your own
             cocktails at home
@@ -45,7 +45,7 @@ const Events = props => {
           role='presentation'
         >
           <h4>Social Media Workshop</h4>
-          <time datetime='2053-07-03T18-30-00'>July 03 @ 6:30pm</time>
+          <time dateTime='2053-07-03T18-30-00'>July 03 @ 6:30pm</time>
           <p>
             Join us to learn tricks of the trade and to market your product,
             your idea, or even yourself on social media
@@ -60,7 +60,7 @@ const Events = props => {
           role='presentation'
         >
           <h4>World of Wine</h4>
-          <time datetime='2053-07-10T18-30-00'>July 10 @ 6:30pm</time>
+          <time dateTime='2053-07-10T18-30-00'>July 10 @ 6:30pm</time>
           <p>
             Climb aboard with our Sommellier, Brandy, as you explore the world
             of wines

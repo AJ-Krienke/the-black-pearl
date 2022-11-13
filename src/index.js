@@ -6,6 +6,9 @@ import Hero from './PageSections/HeroSection/Hero';
 import Intro from './PageSections/IntroSection/Intro';
 import Events from './PageSections/EventsSection/Events';
 import Gallery from './PageSections/GallerySection/Gallery';
+import SignupForm from './Forms/SignupForm/SignupForm';
+import Menu from './PageSections/MenuSection/Menu/Menu';
+import Contact from './PageSections/ContactSection/Contact/Contact';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,5 +21,12 @@ root.render(
       <Events />
       <Gallery />
     </main>
+    <aside>
+      <SignupForm />
+    </aside>
+    <footer>
+      <Menu />
+      <Contact />
+    </footer>
   </React.StrictMode>
 );

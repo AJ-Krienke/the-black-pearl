@@ -6,6 +6,7 @@ html {
   font-size: 62.5%;
   line-height: 1.5;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -42,6 +43,13 @@ button {
      Ensure min guidlines for WCAG 2.0 */
   padding: 14px 22px;
   margin: 16px;
+  color: white;
+  background-color: black;
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(161, 0, 224, 0.6),
+    rgba(110, 0, 153, 0.486)
+  );
 }
 
 .grid {

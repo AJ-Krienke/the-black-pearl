@@ -1,5 +1,3 @@
-import Image from '../../Components/ImageComponent/Image';
-
 import styles from './Gallery.module.css';
 
 const Gallery = props => {
@@ -11,7 +9,7 @@ const Gallery = props => {
         className={`${styles.gallery} grid grid--4col`}
         role='presentation'
       >
-        <p>Gallery goes here</p>
+        <p className={styles['gallery-wrapper']}>Gallery goes here</p>
       </div>
     </section>
   );

@@ -1,0 +1,53 @@
+.form-wrapper {
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.form-image {
+  height: 50vh;
+  justify-self: center;
+}
+
+form {
+  align-self: center;
+}
+
+label,
+input {
+  display: block;
+}
+
+input {
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 0.6rem;
+}
+
+input::placeholder {
+  color: #444;
+  font-size: 1.2rem;
+}
+
+label {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+.correct input {
+  border: 1px solid rgb(0, 125, 0);
+  background-color: rgba(0, 125, 0, 0.2);
+}
+
+.correct::after {
+  content: 'Valid';
+  color: black;
+}
+
+.incorrect input {
+  border: 1px solid rgb(179, 0, 0);
+  background-color: rgba(179, 0, 0, 0.2);
+}
+
+.incorrect::after {
+  content: 'Not Valid';
+}

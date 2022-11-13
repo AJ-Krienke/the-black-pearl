@@ -1,7 +1,7 @@
 const Image = props => {
   return (
     <img
-      lazy='true'
+      loading={props.loading || 'lazy'}
       {...props}
       src={props.src}
       alt={props.alt}
