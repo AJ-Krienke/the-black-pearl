@@ -1,9 +1,6 @@
 import { useReducer, useState } from 'react';
-
 import Button from '../../Components/ButtonComponent/Button';
 import Image from '../../Components/ImageComponent/Image';
-
-import FIREBASE_WEB_API_KEY from '../../.env';
 
 import styles from './SignupForm.module.css';
 
@@ -67,7 +64,7 @@ const SignupForm = props => {
 
     if (emailIsValid && passwordIsValid && confirmPasswordIsValid) {
       fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_WEB_API_KEY}`,
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
         {
           method: 'POST',
           body: JSON.stringify({
@@ -120,7 +117,7 @@ const SignupForm = props => {
               id='password'
               name='password'
               placeholder='Enter a password'
-              minLength='4'
+              minLength='6'
               required
             />
           </div>
