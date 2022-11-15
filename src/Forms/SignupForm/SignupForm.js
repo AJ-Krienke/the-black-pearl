@@ -1,3 +1,14 @@
+//
+//
+//
+//
+//
+// TODO - work on response to submit click
+//
+//
+//
+//
+
 import { useReducer, useState } from 'react';
 import Button from '../../Components/ButtonComponent/Button';
 import Image from '../../Components/ImageComponent/Image';
@@ -23,6 +34,8 @@ const SignupForm = props => {
   const [emailIsValid, setEmailIsValid] = useState(false);
   const [passwordIsValid, setPasswordIsValid] = useState(false);
   const [confirmPasswordIsValid, setConfirmPasswordIsValid] = useState(false);
+
+  const [buttonText, setButtonText] = useState('Signup Now');
 
   const emailChangeHandler = event => {
     if (/\S+@\S+\.\S+/.test(event.target.value.trim())) {
@@ -61,22 +74,22 @@ const SignupForm = props => {
 
   const onFormSubmitHandler = event => {
     event.preventDefault();
-
     if (emailIsValid && passwordIsValid && confirmPasswordIsValid) {
-      fetch(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            email: state.email,
-            password: state.password,
-            returnSecureToken: true,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      setButtonText('Sending...');
+      // fetch(
+      //   'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
+      //   {
+      //     method: 'POST',
+      //     body: JSON.stringify({
+      //       email: state.email,
+      //       password: state.password,
+      //       returnSecureToken: true,
+      //     }),
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },
+      //   }
+      // );
     }
   };
 
@@ -137,7 +150,7 @@ const SignupForm = props => {
               required
             />
           </div>
-          <Button onClick={onFormSubmitHandler}>Signup Now</Button>
+          <Button onClick={onFormSubmitHandler}>{buttonText}</Button>
         </form>
         <Image
           src={require('./media/member-enjoying-cocktails.jpg')}
