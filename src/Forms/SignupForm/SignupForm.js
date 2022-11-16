@@ -34,8 +34,8 @@ const SignupForm = props => {
   const [emailIsValid, setEmailIsValid] = useState(false);
   const [passwordIsValid, setPasswordIsValid] = useState(false);
   const [confirmPasswordIsValid, setConfirmPasswordIsValid] = useState(false);
-
   const [buttonText, setButtonText] = useState('Signup Now');
+  const [disabled, setDisabled] = useState(false);
 
   const emailChangeHandler = event => {
     if (/\S+@\S+\.\S+/.test(event.target.value.trim())) {
@@ -75,7 +75,8 @@ const SignupForm = props => {
   const onFormSubmitHandler = event => {
     event.preventDefault();
     if (emailIsValid && passwordIsValid && confirmPasswordIsValid) {
-      setButtonText('Sending...');
+      setButtonText('Signing you up...');
+      setDisabled(true);
       // fetch(
       //   'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
       //   {
@@ -150,7 +151,12 @@ const SignupForm = props => {
               required
             />
           </div>
-          <Button onClick={onFormSubmitHandler}>{buttonText}</Button>
+          <Button
+            onClick={onFormSubmitHandler}
+            disabled={disabled}
+          >
+            {buttonText}
+          </Button>
         </form>
         <Image
           src={require('./media/member-enjoying-cocktails.jpg')}
