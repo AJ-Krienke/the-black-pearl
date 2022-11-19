@@ -1,0 +1,38 @@
+.contact-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 4.6rem;
+}
+
+.contact-wrapper p {
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  height: 2.5rem;
+  padding: 1.2rem;
+}
+
+.card p {
+  font-size: 1.3rem;
+}
+
+.card p.address {
+  text-align: left;
+}
+
+:link {
+  text-underline-offset: 0.4rem;
+}
+
+@media (max-width: 43.75em) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+}
