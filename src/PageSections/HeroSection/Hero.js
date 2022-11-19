@@ -1,14 +1,12 @@
-import Image from '../../Components/ImageComponent/Image';
 import Button from '../../Components/ButtonComponent/Button';
 import React from 'react';
-import heroImage from './media/hero-image.jpg';
 
 import styles from './Hero.module.css';
 
 const Hero = () => {
   return (
     <section
-      className='hero-section grid grid--hero'
+      className={`${styles['hero-section']} grid grid--hero`}
       name='Welcome to the Black Pearl'
     >
       <div
@@ -21,20 +19,11 @@ const Hero = () => {
         className={styles['button-wrapper']}
         role='presentation'
       >
-        <a href='#signup'>
-          <Button className={styles['call-to-action']}>Become a member</Button>
-        </a>
+        <Button className={styles['call-to-action']}>
+          Contact Information
+        </Button>
+        <Button className={styles['call-to-action']}>Become a member</Button>
       </div>
-      <div
-        className={styles.overlay}
-        role='presentation'
-      ></div>
-      <Image
-        className={styles['hero-image']}
-        src={heroImage}
-        loading='eager'
-        role='presentation'
-      />
     </section>
   );
 };

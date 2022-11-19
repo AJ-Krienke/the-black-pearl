@@ -1,4 +1,5 @@
 import styles from './Gallery.module.css';
+import Image from '../../Components/ImageComponent/Image';
 
 const Gallery = props => {
   return (

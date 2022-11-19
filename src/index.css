@@ -50,6 +50,11 @@ button {
     rgba(161, 0, 224, 0.6),
     rgba(110, 0, 153, 0.486)
   );
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
 }
 
 .grid {
