@@ -1,15 +1,17 @@
 .form-wrapper {
-  padding: 2rem;
-  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form {
+  width: 100%;
+  padding-right: 4.6rem;
 }
 
 .form-image {
-  height: 40rem;
-  justify-self: center;
-}
-
-form {
-  align-self: center;
+  opacity: 0.8;
+  filter: sepia(0.5);
 }
 
 label,
@@ -40,7 +42,7 @@ label {
 
 .correct::after {
   content: 'Valid';
-  color: black;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .incorrect input {
@@ -50,4 +52,5 @@ label {
 
 .incorrect::after {
   content: 'Not Valid';
+  color: rgba(0, 0, 0, 0.7);
 }

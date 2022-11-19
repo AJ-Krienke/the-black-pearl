@@ -1,13 +1,9 @@
+// --------------------- TODO
 //
+// Split form state to
+// local and global state
 //
-//
-//
-//
-// TODO - work on response to submit click
-//
-//
-//
-//
+// ----------------- End TODO
 
 import { useReducer, useState } from 'react';
 import Button from '../../Components/ButtonComponent/Button';
@@ -36,14 +32,15 @@ const SignupForm = props => {
   const [confirmPasswordIsValid, setConfirmPasswordIsValid] = useState(false);
   const [buttonText, setButtonText] = useState('Signup Now');
   const [disabled, setDisabled] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const emailChangeHandler = event => {
     if (/\S+@\S+\.\S+/.test(event.target.value.trim())) {
+      setEmailIsValid(true);
       dispatch({
         type: 'email_changed',
         enteredEmail: event.target.value.trim(),
       });
-      setEmailIsValid(true);
     } else if (emailIsValid) {
       setEmailIsValid(false);
     }
@@ -77,23 +74,22 @@ const SignupForm = props => {
     if (emailIsValid && passwordIsValid && confirmPasswordIsValid) {
       setButtonText('Signing you up...');
       setDisabled(true);
-      // fetch(
-      //   'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
-      //   {
-      //     method: 'POST',
-      //     body: JSON.stringify({
-      //       email: state.email,
-      //       password: state.password,
-      //       returnSecureToken: true,
-      //     }),
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //   }
-      // );
+      fetch(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            email: state.email,
+            password: state.password,
+            returnSecureToken: true,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
     }
   };
-
   return (
     <section
       name='Sign Up'
@@ -102,10 +98,10 @@ const SignupForm = props => {
       <h2>Become a member</h2>
       <h3>All fields are required</h3>
       <div
-        className={`${styles['form-wrapper']} grid grid--2col`}
+        className={styles['form-wrapper']}
         role='presentation'
       >
-        <form>
+        <form className={styles.form}>
           <label htmlFor='email'>Email*</label>
           <div
             className={emailIsValid ? styles.correct : styles.incorrect}
@@ -117,6 +113,7 @@ const SignupForm = props => {
               id='email'
               name='email'
               placeholder='me@example.com'
+              autofill='off'
               required
             />
           </div>

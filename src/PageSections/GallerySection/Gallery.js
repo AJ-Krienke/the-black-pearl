@@ -1,11 +1,13 @@
-import images from './images';
 import Image from '../../Components/ImageComponent/Image';
 
 import styles from './Gallery.module.css';
 
-// Temporary fix for gallery issue
-// TODO - Find a way to work with gallery images dynamically
+// --------------------- TODO
 
+// Temporary fix for gallery issue
+//Find a way to work with gallery images dynamically
+
+import images from './images';
 const galleryImages = images.map(image => {
   return (
     <Image
@@ -17,6 +19,8 @@ const galleryImages = images.map(image => {
     />
   );
 });
+
+//----------------- End TODO
 
 const Gallery = props => {
   return (
