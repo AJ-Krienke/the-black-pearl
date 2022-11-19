@@ -1,5 +1,22 @@
-import styles from './Gallery.module.css';
+import images from './images';
 import Image from '../../Components/ImageComponent/Image';
+
+import styles from './Gallery.module.css';
+
+// Temporary fix for gallery issue
+// TODO - Find a way to work with gallery images dynamically
+
+const galleryImages = images.map(image => {
+  return (
+    <Image
+      key={image.id}
+      title={image.title}
+      src={image.src}
+      alt={image.alt}
+      className={styles.image}
+    />
+  );
+});
 
 const Gallery = props => {
   return (
@@ -10,7 +27,7 @@ const Gallery = props => {
         className={`${styles.gallery} grid grid--4col`}
         role='presentation'
       >
-        <p className={styles['gallery-wrapper']}>Gallery goes here</p>
+        {galleryImages}
       </div>
     </section>
   );
