@@ -80,3 +80,9 @@ button:disabled {
     grid-template-rows: 100vh;
   }
 }
+
+@media (max-width: 50em) {
+  html {
+    font-size: 50%;
+  }
+}

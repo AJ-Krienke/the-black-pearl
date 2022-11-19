@@ -1,12 +1,17 @@
 import Image from '../../Components/ImageComponent/Image';
+
 import styles from './Intro.module.css';
+
 import chef from './media/chef.webp';
 import mixologist from './media/master-mixologist.jpg';
 import sommellier from './media/sommellier.webp';
 
 const Intro = props => {
   return (
-    <section name='Introduction'>
+    <section
+      className={styles['intro-section']}
+      name='Introduction'
+    >
       <h2>The Black Pearl</h2>
       <h3>
         At "The Black Pearl" You can expect an experience of class, and a
