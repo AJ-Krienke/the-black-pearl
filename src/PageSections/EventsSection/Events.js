@@ -13,7 +13,7 @@ const Events = props => {
         role='presentation'
       >
         <div
-          className={`${styles['event-card']} chef-class`}
+          className={`${styles['event-card']} ${styles['chef-class']}`}
           role='presentation'
         >
           <h4>Chef Class</h4>
@@ -25,7 +25,7 @@ const Events = props => {
           <p>Limited space available so be sure to book early</p>
         </div>
         <div
-          className={`${styles['event-card']} cocktail-class`}
+          className={`${styles['event-card']} ${styles['cocktail-class']}`}
           role='presentation'
         >
           <h4>Cocktail Master Class</h4>
@@ -41,7 +41,7 @@ const Events = props => {
           </p>
         </div>
         <div
-          className={`${styles['event-card']} social-media-class`}
+          className={`${styles['event-card']} ${styles['social-media-class']}`}
           role='presentation'
         >
           <h4>Social Media Workshop</h4>
@@ -56,7 +56,7 @@ const Events = props => {
           </p>
         </div>
         <div
-          className={`${styles['event-card']} wine-class`}
+          className={`${styles['event-card']} ${styles['wine-class']}`}
           role='presentation'
         >
           <h4>World of Wine</h4>
