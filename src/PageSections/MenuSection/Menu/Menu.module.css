@@ -1,0 +1,52 @@
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-card {
+  position: relative;
+  z-index: -2;
+  height: 20rem;
+  width: 20rem;
+  display: flex;
+  margin: 1.2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-card::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.menu-link {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  padding: 1rem;
+  backdrop-filter: blur(1rem);
+}
+
+.food-card {
+  background: rgba(255, 255, 255, 0.5) url(./media/food.jpg) no-repeat center
+    center/cover;
+}
+
+.dessert-card {
+  background: rgba(255, 255, 255, 0.5) url(./media/dessert.jpg) no-repeat center
+    center/cover;
+}
+
+.wine-card {
+  background: rgba(255, 255, 255, 0.5) url(./media/wine.jpg) no-repeat center
+    center/cover;
+}
+
+.drink-card {
+  background: rgba(255, 255, 255, 0.5) url(./media/cocktails.jpg) no-repeat
+    center center/cover;
+}
