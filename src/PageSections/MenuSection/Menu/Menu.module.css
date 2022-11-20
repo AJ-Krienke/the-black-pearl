@@ -1,6 +1,7 @@
 .menu-wrapper {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
 }
 
 .menu-card {
@@ -9,7 +10,6 @@
   height: 20rem;
   width: 20rem;
   display: flex;
-  margin: 1.2rem;
   justify-content: center;
   align-items: center;
 }
@@ -49,4 +49,11 @@
 .drink-card {
   background: rgba(255, 255, 255, 0.5) url(./media/cocktails.jpg) no-repeat
     center center/cover;
+}
+
+@media (max-width: 47em) {
+  .menu-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.6rem;
+  }
 }
