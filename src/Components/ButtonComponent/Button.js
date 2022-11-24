@@ -5,6 +5,7 @@ const Button = props => {
     <React.Fragment>
       <button
         {...props}
+        onClick={props.onClick}
         className={props.className}
         type={props.type}
       >

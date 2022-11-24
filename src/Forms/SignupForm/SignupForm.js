@@ -5,7 +5,7 @@
 //
 // ----------------- End TODO
 
-import { useReducer, useState } from 'react';
+import { useReducer, useState, forwardRef } from 'react';
 import Button from '../../Components/ButtonComponent/Button';
 import Image from '../../Components/ImageComponent/Image';
 
@@ -24,7 +24,7 @@ const updateFormState = (state, action) => {
   }
 };
 
-const SignupForm = props => {
+const SignupForm = forwardRef((props, ref) => {
   const [state, dispatch] = useReducer(updateFormState);
 
   const [emailIsValid, setEmailIsValid] = useState(false);
@@ -32,7 +32,6 @@ const SignupForm = props => {
   const [confirmPasswordIsValid, setConfirmPasswordIsValid] = useState(false);
   const [buttonText, setButtonText] = useState('Signup Now');
   const [disabled, setDisabled] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const emailChangeHandler = event => {
     if (/\S+@\S+\.\S+/.test(event.target.value.trim())) {
@@ -90,6 +89,7 @@ const SignupForm = props => {
       );
     }
   };
+
   return (
     <section
       name='Sign Up'
@@ -108,6 +108,7 @@ const SignupForm = props => {
             role='presentation'
           >
             <input
+              ref={ref}
               onChange={emailChangeHandler}
               type='email'
               id='email'
@@ -163,6 +164,6 @@ const SignupForm = props => {
       </div>
     </section>
   );
-};
+});
 
 export default SignupForm;

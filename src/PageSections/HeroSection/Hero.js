@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './Hero.module.css';
 
-const Hero = () => {
+const Hero = props => {
   return (
     <section
       className={`${styles['hero-section']} grid grid--hero`}
@@ -19,10 +19,18 @@ const Hero = () => {
         className={styles['button-wrapper']}
         role='presentation'
       >
-        <Button className={styles['call-to-action']}>
+        <Button
+          className={styles['call-to-action']}
+          onClick={props.onContactClick}
+        >
           Contact Information
         </Button>
-        <Button className={styles['call-to-action']}>Become a member</Button>
+        <Button
+          className={styles['call-to-action']}
+          onClick={props.onSignupClick}
+        >
+          Become a member
+        </Button>
       </div>
     </section>
   );

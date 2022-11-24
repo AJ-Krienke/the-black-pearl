@@ -1,10 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/fontawesome-svg-core';
+import { forwardRef } from 'react';
 
 import styles from './Contact.module.css';
 
-const Contact = props => {
+const Contact = forwardRef((props, ref) => {
   return (
-    <section name='contact'>
+    <section
+      name='contact'
+      ref={ref}
+    >
       <h2>Contact Us</h2>
       <h3>
         Call us, email us, or drop by anytime for reservations, inquiries, and
@@ -19,49 +22,55 @@ const Contact = props => {
           role='presentation'
         >
           <p>Come visit us at:</p>
-          <div
-            className={styles.card}
-            role='presentation'
+          <a
+            href='https://www.google.com/maps/place/Winston-Salem,+NC/@36.1046903,-80.3134977,12z/data=!3m1!4b1!4m5!3m4!1s0x8853a19b82d6b277:0x50325f54b43f8245!8m2!3d36.0998596!4d-80.244216'
+            target='_blank'
+            rel='noreferrer'
           >
-            <svg
-              className={styles.icon}
+            <div
+              className={styles.card}
               role='presentation'
-              xmlns='http://www.w3.org/2000/svg'
-              width='60'
-              height='60'
-              fill='#000000'
-              viewBox='0 0 256 256'
             >
-              <rect
-                width='256'
-                height='256'
-                fill='none'
-              ></rect>
-              <circle
-                cx='128'
-                cy='104'
-                r='32'
-                fill='none'
-                stroke='#000000'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='16'
-              ></circle>
-              <path
-                d='M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z'
-                fill='none'
-                stroke='#000000'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='16'
-              ></path>
-            </svg>
-            <p className={styles.address}>
-              108 Fancy Ln <br />
-              Shop 5 <br />
-              Snootsville &mdash; NC <br /> 26504
-            </p>
-          </div>
+              <svg
+                className={styles.icon}
+                role='presentation'
+                xmlns='http://www.w3.org/2000/svg'
+                width='60'
+                height='60'
+                fill='#000000'
+                viewBox='0 0 256 256'
+              >
+                <rect
+                  width='256'
+                  height='256'
+                  fill='none'
+                ></rect>
+                <circle
+                  cx='128'
+                  cy='104'
+                  r='32'
+                  fill='none'
+                  stroke='#000000'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='16'
+                ></circle>
+                <path
+                  d='M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z'
+                  fill='none'
+                  stroke='#000000'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='16'
+                ></path>
+              </svg>
+              <p className={styles.address}>
+                108 Fancy Ln <br />
+                Shop 5 <br />
+                Snootsville &mdash; NC <br /> 26504
+              </p>
+            </div>
+          </a>
         </div>
         <div
           className={styles['email-wrapper']}
@@ -176,6 +185,6 @@ const Contact = props => {
       </div>
     </section>
   );
-};
+});
 
 export default Contact;
