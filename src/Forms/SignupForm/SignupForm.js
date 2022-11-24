@@ -1,7 +1,6 @@
 // --------------------- TODO
 //
-// Split form state to
-// local and global state
+// Implement auth state from store
 //
 // ----------------- End TODO
 
