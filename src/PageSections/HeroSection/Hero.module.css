@@ -32,6 +32,15 @@
   padding: 1.8rem 2.8rem;
 }
 
+@media (max-width: 60em) {
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
 @media (min-width: 60em) {
   .hero-section {
     background: rgba(0, 0, 0, 0.5) url(./media/hero-image.jpg) no-repeat center

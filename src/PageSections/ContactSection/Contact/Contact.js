@@ -26,6 +26,7 @@ const Contact = forwardRef((props, ref) => {
             href='https://www.google.com/maps/place/Winston-Salem,+NC/@36.1046903,-80.3134977,12z/data=!3m1!4b1!4m5!3m4!1s0x8853a19b82d6b277:0x50325f54b43f8245!8m2!3d36.0998596!4d-80.244216'
             target='_blank'
             rel='noreferrer'
+            title='Opens in Google Maps'
           >
             <div
               className={styles.card}
@@ -65,9 +66,8 @@ const Contact = forwardRef((props, ref) => {
                 ></path>
               </svg>
               <p className={styles.address}>
-                108 Fancy Ln <br />
-                Shop 5 <br />
-                Snootsville &mdash; NC <br /> 26504
+                108 Fancy Ln &mdash; Shop 5 <br />
+                Snootsville, NC 26504
               </p>
             </div>
           </a>

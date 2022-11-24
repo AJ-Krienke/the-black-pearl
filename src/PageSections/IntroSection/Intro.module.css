@@ -9,6 +9,11 @@
   width: 50vw;
 }
 
+.intro-images {
+  display: flex;
+  flex: 1 1 1;
+}
+
 figure {
   border: 1px solid black;
   padding: 2rem;

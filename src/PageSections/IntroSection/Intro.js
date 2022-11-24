@@ -41,21 +41,26 @@ const Intro = props => {
         >
           <figure>
             <figcaption>Our Experts</figcaption>
-            <Image
-              src={chef}
-              height='110'
-              title='Basil Pastason | Head Chef'
-            />
-            <Image
-              src={mixologist}
-              height='110'
-              title='Salty Rimmington | Master Mixologist'
-            />
-            <Image
-              src={sommellier}
-              height='110'
-              title='Brandy Winehouse | Sommellier'
-            />
+            <div
+              className={styles['intro-images']}
+              role='presentation'
+            >
+              <Image
+                src={chef}
+                height='110'
+                title='Basil Pastason | Head Chef'
+              />
+              <Image
+                src={mixologist}
+                height='110'
+                title='Salty Rimmington | Master Mixologist'
+              />
+              <Image
+                src={sommellier}
+                height='110'
+                title='Brandy Winehouse | Sommellier'
+              />
+            </div>
           </figure>
         </div>
       </div>
