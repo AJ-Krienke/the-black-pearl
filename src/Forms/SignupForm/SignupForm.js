@@ -1,10 +1,11 @@
 // --------------------- TODO
 //
-// Implement auth state from store
+// Work on handling response from firebase
 //
 // ----------------- End TODO
 
 import { useReducer, useState, forwardRef } from 'react';
+
 import Button from '../../Components/ButtonComponent/Button';
 import Image from '../../Components/ImageComponent/Image';
 
@@ -71,7 +72,7 @@ const SignupForm = forwardRef((props, ref) => {
     event.preventDefault();
     if (emailIsValid && passwordIsValid && confirmPasswordIsValid) {
       setButtonText('Signing you up...');
-      setDisabled(true);
+      // setDisabled(true);
       fetch(
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
         {
@@ -85,7 +86,13 @@ const SignupForm = forwardRef((props, ref) => {
             'Content-Type': 'application/json',
           },
         }
-      );
+      )
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          }
+        })
+        .then(() => console.log('Signed Up'));
     }
   };
 

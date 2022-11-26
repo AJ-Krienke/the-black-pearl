@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 import styles from './Contact.module.css';
 
 const Contact = forwardRef((props, ref) => {
+  // Return a semantic section to improve accessability
   return (
     <section
       name='contact'
@@ -17,12 +18,14 @@ const Contact = forwardRef((props, ref) => {
         className={styles['contact-wrapper']}
         role='presentation'
       >
+        {/* Start contact link */}
         <div
           className={styles['address-wrapper']}
           role='presentation'
         >
           <p>Come visit us at:</p>
           <a
+            // links to maps for ease of use on mobile
             href='https://www.google.com/maps/place/Winston-Salem,+NC/@36.1046903,-80.3134977,12z/data=!3m1!4b1!4m5!3m4!1s0x8853a19b82d6b277:0x50325f54b43f8245!8m2!3d36.0998596!4d-80.244216'
             target='_blank'
             rel='noreferrer'
@@ -33,6 +36,7 @@ const Contact = forwardRef((props, ref) => {
               role='presentation'
             >
               <svg
+                // Map Icon
                 className={styles.icon}
                 role='presentation'
                 xmlns='http://www.w3.org/2000/svg'
@@ -70,8 +74,10 @@ const Contact = forwardRef((props, ref) => {
                 Snootsville, NC 26504
               </p>
             </div>
+            {/* End contact link */}
           </a>
         </div>
+        {/* start email link */}
         <div
           className={styles['email-wrapper']}
           role='presentation'
@@ -85,6 +91,7 @@ const Contact = forwardRef((props, ref) => {
               className={styles.card}
               role='presentation'
             >
+              {/* email icon */}
               <svg
                 className={styles.icon}
                 role='presentation'
@@ -140,6 +147,7 @@ const Contact = forwardRef((props, ref) => {
               </svg>
               <p>front-desk@theblackpearl.com</p>
             </div>
+            {/* end email link */}
           </a>
         </div>
         <div
@@ -147,6 +155,7 @@ const Contact = forwardRef((props, ref) => {
           role='presentation'
         >
           <p>Call us at:</p>
+          {/* start phone link */}
           <a
             href='tel:3365552615'
             title='Opens in your default phone app'
@@ -155,6 +164,7 @@ const Contact = forwardRef((props, ref) => {
               className={styles.card}
               role='presentation'
             >
+              {/* phone icon */}
               <svg
                 className={styles.icon}
                 role='presentation'
@@ -180,6 +190,7 @@ const Contact = forwardRef((props, ref) => {
               </svg>
               <p>(336) 555 - 2615</p>
             </div>
+            {/* End phone link */}
           </a>
         </div>
       </div>
