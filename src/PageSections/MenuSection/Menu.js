@@ -9,8 +9,8 @@ const Menu = props => {
     <section name='menu'>
       <h2>Our Menus</h2>
       <h3>
-        Expertly created and curated menus with a treasure trove of treats for
-        you to choose from
+        Expertly created menus with a treasure trove of treats for you to choose
+        from
       </h3>
       <div
         className={styles['menu-wrapper']}

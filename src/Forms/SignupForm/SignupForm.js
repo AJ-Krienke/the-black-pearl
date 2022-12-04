@@ -1,47 +1,45 @@
-// --------------------- TODO
+// ------------------ TODO
 //
-// Work on handling response from firebase
+// Handle Signup Error
+// Handle already a member error
+// Add login button
 //
-// ----------------- End TODO
+// ---------------END TODO
 
-import { useReducer, useState, forwardRef } from 'react';
+import { useState, forwardRef, useContext } from 'react';
 
 import Button from '../../Components/ButtonComponent/Button';
+import FormSuccess from '../../Components/FormSuccess/FormSuccess';
 import Image from '../../Components/ImageComponent/Image';
+import SignupContext from '../../Contexts/SignupContext';
 
 import styles from './SignupForm.module.css';
 
-const updateFormState = (state, action) => {
-  switch (action.type) {
-    case 'email_changed':
-      return { ...state, email: action.enteredEmail };
-
-    case 'password_changed':
-      return { ...state, password: action.enteredPassword };
-
-    default:
-      throw new Error('Invalid action type');
-  }
-};
-
 const SignupForm = forwardRef((props, ref) => {
-  const [state, dispatch] = useReducer(updateFormState);
+  const [isSignedUp, setIsSignedUp] = useContext(SignupContext);
 
-  const [emailIsValid, setEmailIsValid] = useState(false);
-  const [passwordIsValid, setPasswordIsValid] = useState(false);
-  const [confirmPasswordIsValid, setConfirmPasswordIsValid] = useState(false);
-  const [buttonText, setButtonText] = useState('Signup Now');
-  const [disabled, setDisabled] = useState(false);
+  const [formFields, setFormFields] = useState({
+    email: null,
+    password: null,
+  });
+
+  const [formState, setFormState] = useState({
+    submitting: false,
+    disabled: false,
+    error: false,
+  });
 
   const emailChangeHandler = event => {
     if (/\S+@\S+\.\S+/.test(event.target.value.trim())) {
-      setEmailIsValid(true);
-      dispatch({
-        type: 'email_changed',
-        enteredEmail: event.target.value.trim(),
+      setFormFields({
+        ...formFields,
+        email: event.target.value.trim(),
       });
-    } else if (emailIsValid) {
-      setEmailIsValid(false);
+    } else {
+      setFormFields({
+        ...formFields,
+        email: null,
+      });
     }
   };
 
@@ -50,50 +48,49 @@ const SignupForm = forwardRef((props, ref) => {
       event.target.value.trim().length > 4 &&
       /[!?.,@#$%^&*|\\/]/.test(event.target.value.trim())
     ) {
-      dispatch({
-        type: 'password_changed',
-        enteredPassword: event.target.value.trim(),
+      setFormFields({
+        ...formFields,
+        password: event.target.value.trim(),
       });
-      setPasswordIsValid(true);
-    } else if (passwordIsValid) {
-      setPasswordIsValid(false);
-    }
-  };
-
-  const confirmPasswordChangeHandler = event => {
-    if (state.password === event.target.value) {
-      setConfirmPasswordIsValid(true);
-    } else if (confirmPasswordIsValid) {
-      setConfirmPasswordIsValid(false);
+    } else {
+      setFormFields({
+        ...formFields,
+        password: null,
+      });
     }
   };
 
   const onFormSubmitHandler = event => {
     event.preventDefault();
-    if (emailIsValid && passwordIsValid && confirmPasswordIsValid) {
-      setButtonText('Signing you up...');
-      // setDisabled(true);
-      fetch(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            email: state.email,
-            password: state.password,
-            returnSecureToken: true,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+    setFormState({
+      ...formState,
+      disabled: true,
+      submitting: true,
+    });
+    fetch(
+      // Based on googles firbase docs, it is perfectly safe to have the key here because permissions are set in the firebase dashboard
+      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          email: formFields.email,
+          password: formFields.password,
+          returnSecureToken: true,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
         }
-      )
-        .then(response => {
-          if (response.status === 200) {
-            return response.json();
-          }
-        })
-        .then(() => console.log('Signed Up'));
-    }
+      })
+      .then(() => {
+        setIsSignedUp(true);
+        props.signUpRef.current.scrollIntoView();
+      });
   };
 
   return (
@@ -101,73 +98,87 @@ const SignupForm = forwardRef((props, ref) => {
       name='Sign Up'
       id='signup'
     >
-      <h2>Become a member</h2>
-      <h3>All fields are required</h3>
-      <div
-        className={styles['form-wrapper']}
-        role='presentation'
-      >
-        <form className={styles.form}>
-          <label htmlFor='email'>Email*</label>
+      {isSignedUp ? (
+        <>
+          <h2>You are a member</h2>
+          <h3>Congratulations, you signed up successfully</h3>
+          <FormSuccess />
+        </>
+      ) : (
+        <>
+          <h2>Become a member</h2>
+          <h3>All fields are required</h3>
           <div
-            className={emailIsValid ? styles.correct : styles.incorrect}
+            className={styles['form-wrapper']}
             role='presentation'
           >
-            <input
-              ref={ref}
-              onChange={emailChangeHandler}
-              type='email'
-              id='email'
-              name='email'
-              placeholder='me@example.com'
-              autofill='off'
-              required
+            <form className={styles.form}>
+              <label
+                htmlFor='email'
+                disabled={formState.disabled}
+              >
+                Email *
+              </label>
+              <div
+                className={formFields.email ? styles.correct : styles.incorrect}
+                role='presentation'
+              >
+                <input
+                  disabled={formState.disabled}
+                  ref={ref}
+                  onChange={emailChangeHandler}
+                  type='email'
+                  id='email'
+                  name='email'
+                  placeholder='me@example.com'
+                  autoComplete='off'
+                  required
+                />
+              </div>
+              <label
+                htmlFor='password'
+                disabled={formState.disabled}
+              >
+                Password *
+              </label>
+              <div
+                className={
+                  formFields.password ? styles.correct : styles.incorrect
+                }
+                role='presentation'
+              >
+                <input
+                  disabled={formState.disabled}
+                  onChange={passwordChangeHandler}
+                  type='password'
+                  id='password'
+                  name='password'
+                  placeholder='Enter a password'
+                  minLength='6'
+                  autoComplete='off'
+                  required
+                />
+              </div>
+              <Button
+                onClick={onFormSubmitHandler}
+                disabled={
+                  // If the email and password are valid and the formstate has been set to disabled, set html disabled to true, otherwise false.
+                  formFields.email && formFields.password && formState.disabled
+                    ? true
+                    : false
+                }
+              >
+                {formState.submitting ? 'Submitting...' : 'Sign up now'}
+              </Button>
+            </form>
+            <Image
+              src={require('./media/member-enjoying-cocktails.jpg')}
+              role='presentation'
+              className={styles['form-image']}
             />
           </div>
-          <label htmlFor='password'>Password*</label>
-          <div
-            className={passwordIsValid ? styles.correct : styles.incorrect}
-            role='presentation'
-          >
-            <input
-              onChange={passwordChangeHandler}
-              type='password'
-              id='password'
-              name='password'
-              placeholder='Enter a password'
-              minLength='6'
-              required
-            />
-          </div>
-          <label htmlFor='confirm-password'>Confirm Password*</label>
-          <div
-            className={
-              confirmPasswordIsValid ? styles.correct : styles.incorrect
-            }
-            role='presentation'
-          >
-            <input
-              onChange={confirmPasswordChangeHandler}
-              type='password'
-              id='confirm-password'
-              name='confirm-password'
-              placeholder='Confirm your password'
-              required
-            />
-          </div>
-          <Button
-            onClick={onFormSubmitHandler}
-            disabled={disabled}
-          >
-            {buttonText}
-          </Button>
-        </form>
-        <Image
-          src={require('./media/member-enjoying-cocktails.jpg')}
-          role='presentation'
-          className={styles['form-image']}
-        />
-      </div>
+        </>
+      )}
     </section>
   );
 });

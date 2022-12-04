@@ -57,6 +57,10 @@ label {
   color: rgba(0, 0, 0, 0.7);
 }
 
+:disabled {
+  opacity: 0.6;
+}
+
 @media (max-width: 40em) {
   .form-image {
     display: none;

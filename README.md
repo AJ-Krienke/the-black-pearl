@@ -1,5 +1,7 @@
 # The Black Pearl Fine Dining Restaurant
 
+#### \*\* Update - It was originally intended to use redux for state and nextjs for routing and pre-rendering but I decided to keep this a React project. I figured it better to have a separate project to showcase nextjs or I can work on migrating to next later on.
+
 ## Concept
 
 This will be a multifunctional website to showcase the various skills and concepts I understand as well as to show my process for building a website.

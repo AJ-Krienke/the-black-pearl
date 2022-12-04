@@ -1,9 +1,11 @@
 import Button from '../../Components/ButtonComponent/Button';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styles from './Hero.module.css';
+import SignupContext from '../../Contexts/SignupContext';
 
 const Hero = props => {
+  const [isSignedUp] = useContext(SignupContext);
   return (
     <section
       className={`${styles['hero-section']} grid grid--hero`}
@@ -25,12 +27,14 @@ const Hero = props => {
         >
           Contact Information
         </Button>
-        <Button
-          className={styles['call-to-action']}
-          onClick={props.onSignupClick}
-        >
-          Become a member
-        </Button>
+        {!isSignedUp && (
+          <Button
+            className={styles['call-to-action']}
+            onClick={props.onSignupClick}
+          >
+            Become a member
+          </Button>
+        )}
       </div>
     </section>
   );

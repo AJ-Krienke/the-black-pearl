@@ -1,0 +1,31 @@
+import React from 'react';
+import Button from '../ButtonComponent/Button';
+
+import styles from './FormSuccess.module.css';
+
+const FormSuccess = props => {
+  return (
+    <div
+      className={styles['success-wrapper']}
+      role='presentation'
+    >
+      <p>
+        The Black Pearl Restaurant is not just a place to eat. We are an
+        experience, a lifestyle, and most importantly, a family.
+      </p>
+      <p>
+        Your membership, gives you unlimited access to our exclusive events
+        where you can learn from our experts, have fun, and meet new people.
+      </p>
+      <p>
+        Not sure what drinks to have? On your member page, you have access to
+        our drink recommendation app that was tailor made to compliment our
+        menus, and carefully curated by our experts to ensure the best match for
+        your unique tastes.
+      </p>
+      <Button>Head over to the member page to learn more</Button>
+    </div>
+  );
+};
+
+export default FormSuccess;

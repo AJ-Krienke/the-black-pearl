@@ -1,12 +1,17 @@
+import { useContext } from 'react';
+
+import SignupContext from '../../Contexts/SignupContext';
 import styles from './Events.module.css';
 
 const Events = props => {
+  const [isSignedUp] = useContext(SignupContext);
   return (
     <section name='events'>
       <h2>Upcoming Events</h2>
       <h3>
-        By signing up for a free membership, you will get access to these
-        exclusive member only events
+        {isSignedUp
+          ? 'Checkout our exclusive events that you can attend as a member now'
+          : 'By signing up for a free membership, you will get access to these exclusive member only events'}
       </h3>
       <div
         className={`${styles['event-wrapper']} grid grid--2col`}
