@@ -21,6 +21,7 @@ section {
 p {
   max-width: 80ch;
   font-size: 1.6rem;
+  padding: 1.2rem;
 }
 
 h2 {
@@ -31,7 +32,7 @@ h2 {
 }
 
 h3 {
-  padding: 0.5rem;
+  padding: 1.2rem;
   text-align: center;
   color: rgb(52, 0, 73);
   font-size: 1.8rem;
