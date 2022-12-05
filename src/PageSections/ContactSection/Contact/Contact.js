@@ -157,7 +157,7 @@ const Contact = forwardRef((props, ref) => {
           <p>Call us at:</p>
           {/* start phone link */}
           <a
-            href='tel:3365552615'
+            href='tel:1234567890'
             title='Opens in your default phone app'
           >
             <div
@@ -188,7 +188,7 @@ const Contact = forwardRef((props, ref) => {
                   strokeWidth='16'
                 ></path>
               </svg>
-              <p>(336) 555 - 2615</p>
+              <p>(123) 456 - 7890</p>
             </div>
             {/* End phone link */}
           </a>
