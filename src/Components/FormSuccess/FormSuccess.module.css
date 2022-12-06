@@ -3,3 +3,17 @@
   flex-direction: column;
   align-items: center;
 }
+
+.button {
+  display: flex;
+  cursor: not-allowed;
+}
+
+.button-text {
+  text-align: left;
+}
+
+.button-icon svg {
+  fill: white;
+  margin-inline: 2rem;
+}
