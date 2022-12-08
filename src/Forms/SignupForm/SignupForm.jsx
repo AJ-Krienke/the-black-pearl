@@ -1,9 +1,10 @@
 // ------------------ TODO
 //
-// Handle Signup Error else case
 // Add message Already a member signing you in
 // Add login button
 // move signup logic to a seperate file
+// Move form component to a seprate component
+// clean up conditional rendering
 //
 // ---------------END TODO
 
@@ -106,6 +107,8 @@ const SignupForm = forwardRef((props, ref) => {
           if ((error.message = 'EMAIL_EXISTS')) {
             // try to login
             signUp('signInWithPassword');
+          } else {
+            setFormState({ ...formState, error: true, disabled: true });
           }
         });
     };
@@ -126,11 +129,13 @@ const SignupForm = forwardRef((props, ref) => {
     >
       {isSignedUp ? (
         <>
+          {/* Render sign in success if signed in */}
           <h2>You are a member</h2>
           <h3>Congratulations, you signed up successfully</h3>
           <FormSuccess />
         </>
       ) : (
+        // only render form if not signed in
         <>
           <h2>Become a member</h2>
           <h3>All fields are required</h3>
@@ -139,6 +144,16 @@ const SignupForm = forwardRef((props, ref) => {
             role='presentation'
           >
             <form className={styles.form}>
+              {/* Render a warning if signin unsuccessful */}
+              {formState.error && (
+                <a
+                  href='mailto:front-desk@theblackpearl.com'
+                  title='Opens in your default mail app'
+                  className={styles.error}
+                >
+                  There was an error signing you up, please contact us by email
+                </a>
+              )}
               <label
                 htmlFor='email'
                 disabled={formState.disabled}

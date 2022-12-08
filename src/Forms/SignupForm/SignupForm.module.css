@@ -16,6 +16,18 @@
   width: min(50%, 50vw);
 }
 
+.error {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-underline-offset: 0.8rem;
+  display: block;
+  padding: 1.4rem;
+  width: 100%;
+  color: rgb(87, 0, 0);
+  background-color: rgba(179, 0, 0, 0.2);
+}
+
 label,
 input {
   display: block;
