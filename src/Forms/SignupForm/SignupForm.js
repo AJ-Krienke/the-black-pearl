@@ -1,8 +1,9 @@
 // ------------------ TODO
 //
-// Handle Signup Error
-// Handle already a member error
+// Handle Signup Error else case
+// Add message Already a member signing you in
 // Add login button
+// move signup logic to a seperate file
 //
 // ---------------END TODO
 
@@ -62,35 +63,60 @@ const SignupForm = forwardRef((props, ref) => {
 
   const onFormSubmitHandler = event => {
     event.preventDefault();
-    setFormState({
-      ...formState,
-      disabled: true,
-      submitting: true,
-    });
-    fetch(
-      // Based on googles firbase docs, it is perfectly safe to have the key here because permissions are set in the firebase dashboard
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ',
-      {
+    const signUp = firebaseMethod => {
+      // It is perfectly safe to have the API key here, remote clients need this API key to access the signup API
+      const URL = `https://identitytoolkit.googleapis.com/v1/accounts:${firebaseMethod}?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ`;
+
+      const INIT = {
         method: 'POST',
         body: JSON.stringify({
           email: formFields.email,
           password: formFields.password,
           returnSecureToken: true,
         }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then(response => {
-        if (response.status === 200) {
-          return response.json();
-        }
-      })
-      .then(() => {
-        setIsSignedUp(true);
-        props.signUpRef.current.scrollIntoView();
-      });
+      };
+
+      const HEADERS = {
+        'Content-Type': 'application/json',
+      };
+
+      // Try to signup
+      fetch(URL, INIT, HEADERS)
+        // Parse JSON from response
+        .then(response => response.json())
+
+        // use data object to verify signup
+        .then(data => {
+          // Check for error signing up
+          if (data.error) {
+            // Break out of chained promises
+            throw data.error;
+          }
+
+          // set signed up state because it
+          // was successful
+          setIsSignedUp(true);
+
+          // return successful signup object
+          return data;
+        })
+
+        .catch(error => {
+          // If email used to signup exists
+          if ((error.message = 'EMAIL_EXISTS')) {
+            // try to login
+            signUp('signInWithPassword');
+          }
+        });
+    };
+
+    setFormState({
+      ...formState,
+      disabled: true,
+      submitting: true,
+    });
+
+    signUp('signUp');
   };
 
   return (

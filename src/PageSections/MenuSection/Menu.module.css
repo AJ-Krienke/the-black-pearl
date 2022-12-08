@@ -4,6 +4,10 @@
   justify-items: center;
 }
 
+.menu-wrapper a {
+  border: 1px solid black;
+}
+
 .menu-card {
   position: relative;
   z-index: -2;
