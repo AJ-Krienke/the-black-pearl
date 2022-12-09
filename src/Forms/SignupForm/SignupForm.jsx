@@ -1,6 +1,5 @@
 // ------------------ TODO
 //
-// Add message Already a member signing you in
 // Add login button
 // move signup logic to a seperate file
 // Move form component to a seprate component
@@ -63,6 +62,11 @@ const SignupForm = forwardRef((props, ref) => {
   };
 
   const onFormSubmitHandler = event => {
+    // The signin state is currently non persistent
+    // That is intentional because the users
+    // are expected to be testing it, not actual
+    // using the site
+
     event.preventDefault();
     const signUp = firebaseMethod => {
       // It is perfectly safe to have the API key here, remote clients need this API key to access the signup API
@@ -92,6 +96,22 @@ const SignupForm = forwardRef((props, ref) => {
           if (data.error) {
             // Break out of chained promises
             throw data.error;
+          } else if (
+            data.kind === 'identitytoolkit#VerifyPasswordResponse' &&
+            firebaseMethod === 'signInWithPassword'
+          ) {
+            // For security, only after login
+            // with user email succeeds
+            // Log a message with a timer to let
+            // user know that they are being
+            // signed in
+            alert(
+              `
+You are already a member
+We'll sign you in instead`
+            );
+          } else {
+            console.log(data);
           }
 
           // set signed up state because it
