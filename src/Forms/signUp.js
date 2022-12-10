@@ -63,7 +63,14 @@ We'll sign you in instead
         // If email used to signup exists
         if ((error.message = 'EMAIL_EXISTS')) {
           // try to login
-          signUp('signInWithPassword');
+          signUp({
+            email,
+            password,
+            firebaseMethod: 'signInWithPassword',
+            state,
+            setState,
+            setIsSignedUp,
+          });
         } else {
           setState({
             ...state,
