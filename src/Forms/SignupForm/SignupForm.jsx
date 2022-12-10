@@ -1,10 +1,8 @@
 // ------------------ TODO
 //
-// fix setSignedUp(true) logic error
-// Add login button
-// move signup logic to a seperate file
 // Move form component to a seprate component
 // clean up conditional rendering
+// Add login button
 //
 // ---------------END TODO
 
@@ -14,6 +12,7 @@ import Button from '../../Components/ButtonComponent/Button';
 import FormSuccess from '../../Components/FormSuccess/FormSuccess';
 import Image from '../../Components/ImageComponent/Image';
 import SignupContext from '../../Contexts/SignupContext';
+import signUp from '../signUp';
 
 import styles from './SignupForm.module.css';
 
@@ -69,81 +68,14 @@ const SignupForm = forwardRef((props, ref) => {
     // using the site
 
     event.preventDefault();
-    const signUp = firebaseMethod => {
-      // It is perfectly safe to have the API key here, remote clients need this API key to access the signup API
-      const URL = `https://identitytoolkit.googleapis.com/v1/accounts:${firebaseMethod}?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ`;
-
-      const INIT = {
-        method: 'POST',
-        body: JSON.stringify({
-          email: formFields.email,
-          password: formFields.password,
-          returnSecureToken: true,
-        }),
-      };
-
-      const HEADERS = {
-        'Content-Type': 'application/json',
-      };
-
-      // If email and password are updated/valid
-      if (formFields.email && formFields.password) {
-        // Try to signup
-        fetch(URL, INIT, HEADERS)
-          // Parse JSON from response
-          .then(response => response.json())
-
-          // use data object to verify signup
-          .then(data => {
-            // Check for error signing up
-            if (data.error) {
-              // If there is any error with either
-              // signup or signin, this will exit
-              // and setSignedUp will be skipped
-              throw data.error;
-            } else if (
-              data.kind === 'identitytoolkit#VerifyPasswordResponse' &&
-              firebaseMethod === 'signInWithPassword'
-            ) {
-              // For security, only after login
-              // with user email succeeds
-              // Log a message with a timer to let
-              // user know that they are being
-              // signed in
-              alert(
-                `
-You are already a member
-We'll sign you in instead
-`
-              );
-            }
-
-            // set signed up state because it
-            // was successful
-            setIsSignedUp(true);
-
-            // return successful signup object
-            return data;
-          })
-
-          .catch(error => {
-            // If email used to signup exists
-            if ((error.message = 'EMAIL_EXISTS')) {
-              // try to login
-              signUp('signInWithPassword');
-            } else {
-              setFormState({ ...formState, error: true, disabled: true });
-            }
-          });
-        setFormState({
-          ...formState,
-          disabled: true,
-          submitting: true,
-        });
-      }
-    };
-
-    signUp('signUp');
+    signUp({
+      email: formFields.email,
+      password: formFields.password,
+      firebaseMethod: 'signUp',
+      state: formState,
+      setState: setFormState,
+      setIsSignedUp,
+    });
   };
 
   return (
