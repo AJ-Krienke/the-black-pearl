@@ -72,8 +72,8 @@ const SignupForm = forwardRef((props, ref) => {
       email: formFields.email,
       password: formFields.password,
       firebaseMethod: 'signUp',
-      state: formState,
-      setState: setFormState,
+      formState,
+      setFormState,
       setIsSignedUp,
     });
   };
@@ -163,9 +163,8 @@ const SignupForm = forwardRef((props, ref) => {
                   // valid, you can't submit
                   // or if the form is submitting
                   // you also cant submit
-                  formFields.email &&
-                  formFields.password &&
-                  !formState.submitting
+                  (formFields.email && formFields.password) ||
+                  formState.submitting
                     ? false
                     : true
                 }
