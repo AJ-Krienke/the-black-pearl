@@ -1,5 +1,6 @@
 // ------------------ TODO
 //
+// fix setSignedUp(true) logic error
 // Add login button
 // move signup logic to a seperate file
 // Move form component to a seprate component
@@ -64,7 +65,7 @@ const SignupForm = forwardRef((props, ref) => {
   const onFormSubmitHandler = event => {
     // The signin state is currently non persistent
     // That is intentional because the users
-    // are expected to be testing it, not actual
+    // are expected to be testing it, not actually
     // using the site
 
     event.preventDefault();
@@ -85,59 +86,62 @@ const SignupForm = forwardRef((props, ref) => {
         'Content-Type': 'application/json',
       };
 
-      // Try to signup
-      fetch(URL, INIT, HEADERS)
-        // Parse JSON from response
-        .then(response => response.json())
+      // If email and password are updated/valid
+      if (formFields.email && formFields.password) {
+        // Try to signup
+        fetch(URL, INIT, HEADERS)
+          // Parse JSON from response
+          .then(response => response.json())
 
-        // use data object to verify signup
-        .then(data => {
-          // Check for error signing up
-          if (data.error) {
-            // Break out of chained promises
-            throw data.error;
-          } else if (
-            data.kind === 'identitytoolkit#VerifyPasswordResponse' &&
-            firebaseMethod === 'signInWithPassword'
-          ) {
-            // For security, only after login
-            // with user email succeeds
-            // Log a message with a timer to let
-            // user know that they are being
-            // signed in
-            alert(
-              `
+          // use data object to verify signup
+          .then(data => {
+            // Check for error signing up
+            if (data.error) {
+              // If there is any error with either
+              // signup or signin, this will exit
+              // and setSignedUp will be skipped
+              throw data.error;
+            } else if (
+              data.kind === 'identitytoolkit#VerifyPasswordResponse' &&
+              firebaseMethod === 'signInWithPassword'
+            ) {
+              // For security, only after login
+              // with user email succeeds
+              // Log a message with a timer to let
+              // user know that they are being
+              // signed in
+              alert(
+                `
 You are already a member
-We'll sign you in instead`
-            );
-          } else {
-            console.log(data);
-          }
+We'll sign you in instead
+`
+              );
+            }
 
-          // set signed up state because it
-          // was successful
-          setIsSignedUp(true);
+            // set signed up state because it
+            // was successful
+            setIsSignedUp(true);
 
-          // return successful signup object
-          return data;
-        })
+            // return successful signup object
+            return data;
+          })
 
-        .catch(error => {
-          // If email used to signup exists
-          if ((error.message = 'EMAIL_EXISTS')) {
-            // try to login
-            signUp('signInWithPassword');
-          } else {
-            setFormState({ ...formState, error: true, disabled: true });
-          }
+          .catch(error => {
+            // If email used to signup exists
+            if ((error.message = 'EMAIL_EXISTS')) {
+              // try to login
+              signUp('signInWithPassword');
+            } else {
+              setFormState({ ...formState, error: true, disabled: true });
+            }
+          });
+        setFormState({
+          ...formState,
+          disabled: true,
+          submitting: true,
         });
+      }
     };
-
-    setFormState({
-      ...formState,
-      disabled: true,
-      submitting: true,
-    });
 
     signUp('signUp');
   };
@@ -223,16 +227,22 @@ We'll sign you in instead`
               <Button
                 onClick={onFormSubmitHandler}
                 disabled={
-                  // If the email and password are valid and the formstate has been set to disabled, set html disabled to true, otherwise false.
-                  formFields.email && formFields.password && formState.disabled
-                    ? true
-                    : false
+                  // If the email and password aren't
+                  // valid, you can't submit
+                  // or if the form is submitting
+                  // you also cant submit
+                  formFields.email &&
+                  formFields.password &&
+                  !formState.submitting
+                    ? false
+                    : true
                 }
               >
                 {formState.submitting ? 'Submitting...' : 'Sign up now'}
               </Button>
             </form>
             <Image
+              loading='eager'
               src={require('./media/member-enjoying-cocktails.jpg')}
               role='presentation'
               className={styles['form-image']}
