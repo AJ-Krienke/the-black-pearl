@@ -9,6 +9,7 @@ import SignupForm from './Forms/SignupForm/SignupForm';
 import Menu from './PageSections/MenuSection/Menu';
 import Contact from './PageSections/ContactSection/Contact/Contact';
 import SignupContext from './Contexts/SignupContext';
+import LoginButton from './Components/LoginButton/LoginButton';
 
 const LandingPage = props => {
   const [isSignedUp, setIsSignedUp] = useState(false);
@@ -27,11 +28,12 @@ const LandingPage = props => {
   return (
     <React.Fragment>
       <SignupContext.Provider value={[isSignedUp, setIsSignedUp]}>
+        <LoginButton />
         <header>
           <Hero
             onContactClick={contactClickHandler}
             onSignupClick={signupClickHandler}
-          />
+          ></Hero>
         </header>
         <main>
           <Intro />

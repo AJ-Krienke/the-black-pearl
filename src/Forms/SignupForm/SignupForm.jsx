@@ -1,8 +1,7 @@
 // ------------------ TODO
 //
-// Move form component to a seprate component
+// Refactor form to be reused in modal
 // clean up conditional rendering
-// Add login button
 //
 // ---------------END TODO
 
@@ -87,7 +86,7 @@ const SignupForm = forwardRef((props, ref) => {
         <>
           {/* Render sign in success if signed in */}
           <h2>You are a member.</h2>
-          <h3>Congratulations, you signed up successfully.</h3>
+          <h3>You are logged in.</h3>
           <FormSuccess />
         </>
       ) : (

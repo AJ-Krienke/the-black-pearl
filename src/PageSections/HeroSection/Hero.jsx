@@ -36,6 +36,7 @@ const Hero = props => {
           </Button>
         )}
       </div>
+      {props.children}
     </section>
   );
 };

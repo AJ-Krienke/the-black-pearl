@@ -1,3 +1,5 @@
 {
-  "editor.inlineSuggest.enabled": false
+  "editor.inlineSuggest.enabled": false,
+  "audioCues.lineHasError": "off",
+  "audioCues.lineHasInlineSuggestion": "off"
 }
