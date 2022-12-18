@@ -6,7 +6,7 @@ const signUp = ({
   setFormState,
   setIsSignedUp,
 }) => {
-  // It is perfectly safe to have the API key here, remote clients need this API key to access the signup API
+  // It is perfectly safe to have the API key here, remote clients need this API key to access the signup API for this project
   const URL = `https://identitytoolkit.googleapis.com/v1/accounts:${firebaseMethod}?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ`;
 
   const INIT = {
@@ -15,77 +15,70 @@ const signUp = ({
       email: email,
       password: password,
       returnSecureToken: true,
-    }),
-  };
+    }), // End body
+  }; // End INIT
 
   const HEADERS = {
     'Content-Type': 'application/json',
-  };
+  }; // End HEADERS
 
   // If email and password are updated and valid
   if (email && password) {
     // Try to signup
     fetch(URL, INIT, HEADERS)
-      // Parse JSON from response
       .then(response => {
-        // Throw error early to short circuit
-        // other tests
-        if (!response.ok) {
-          throw new Error('Bad response from network');
-        }
+        // You can only extract the error message for
+        // the next step if the response has been
+        // parsed to json
         return response.json();
-      })
+      }) // End response 'then'
 
-      // use data object to verify signup
       .then(data => {
-        if (!data.ok) {
-          throw new Error('Bad Response: ' + data);
-        }
-        // Handling the error previously
-        // means this will only execute
-        // if the fetch and json parse
-        // is successful
-        if (
-          // if the kind of data returned from
-          // firebase identity toolkit
-          data.kind === 'identitytoolkit#VerifyPasswordResponse' &&
-          // and the REST api used was to sign in
-          firebaseMethod === 'signInWithPassword'
-        ) {
-          // For security, only after login
-          // is succesful, log a message to
-          // let user know that they are being
-          // signed in to protect against brute
-          // force attacks on the email input
-          alert(
-            `
-        You are already a member
-        -------------------------
-        You will now be signed in
-        `
-          );
-        }
-        //         setIsSignedUp(true);
-        console.log(data);
-      })
-
-      .catch(error => {
-        // if the email doesn't exist
-        // throw the error
-        if (error.message === 'EMAIL_EXISTS') {
-          // If email used to signup exists
-          // try to login instead
-          signUp({
-            email,
-            password,
-            firebaseMethod: 'signInWithPassword',
-            formState,
-            setFormState,
-            setIsSignedUp,
+        // If there is an error
+        if (data.error) {
+          // If the error is that the email exists
+          if (data.error.message === 'EMAIL_EXISTS') {
+            // try to signin with the same credentials
+            signUp({
+              email,
+              password,
+              firebaseMethod: 'signInWithPassword',
+              formState,
+              setFormState,
+              setIsSignedUp,
+            }); // End signin with signup function call
+          } else {
+            // if firebase returned an error that wasn't
+            // email exists, create an error state
+            setFormState({
+              ...formState,
+              error: true,
+            });
+            // ensure no isSignedUp state exists
+            setIsSignedUp(false);
+            // Create an error
+            throw new Error('Unsuccessful signin');
+          } // End if data.error.message === 'EMAIL_EXISTS'
+        } // End if data.error
+        else {
+          // If there isn't an error signup
+          // was successful
+          setIsSignedUp(true);
+          setFormState({
+            ...formState,
+            disabled: true,
+            error: false,
+            submitting: false,
           });
+          // Alert of successful signin even for signup
+          alert('Signed in');
         }
-      });
-  }
+      }) // End data then
+
+      .catch(e => {
+        console.error(e);
+      }); // End catch and promise chain
+  } // End valid email and password check
 };
 
 export default signUp;
