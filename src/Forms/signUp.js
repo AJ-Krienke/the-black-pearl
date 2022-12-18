@@ -70,8 +70,6 @@ const signUp = ({
             error: false,
             submitting: false,
           });
-          // Alert of successful signin even for signup
-          alert('Signed in');
         }
       }) // End data then
 

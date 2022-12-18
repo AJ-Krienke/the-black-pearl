@@ -14,9 +14,10 @@ const galleryImages = images.map(image => {
   return (
     <Image
       key={image.id}
-      title={image.title}
+      title={image.alt}
       src={image.src}
       alt={image.alt}
+      name={image.name}
       className={styles.image}
     />
   );
@@ -28,11 +29,11 @@ const Gallery = props => {
   const [isSignedUp] = useContext(SignupContext);
   return (
     <section name='gallery'>
-      <h2>We're so much more than a restaurant</h2>
+      <h2>We're so much more than a restaurant.</h2>
       <h3>
         {isSignedUp
-          ? 'Come enjoy the exclusive lifestyle with us'
-          : 'Membership with us is a lifestyle choice'}
+          ? 'Come enjoy the exclusive lifestyle with us.'
+          : 'Membership with us is a lifestyle choice.'}
       </h3>
       <div
         className={`${styles.gallery} grid grid--4col`}

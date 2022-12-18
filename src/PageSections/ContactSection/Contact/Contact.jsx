@@ -9,10 +9,10 @@ const Contact = forwardRef((props, ref) => {
       name='contact'
       ref={ref}
     >
-      <h2>Contact Us</h2>
+      <h2>Contact Us.</h2>
+      {/* prettier-ignore */}
       <h3>
-        Call us, email us, or drop by anytime for reservations, inquiries, and
-        more
+        Call us, email us, or drop by anytime for reservations, inquiries, and more.
       </h3>
       <div
         className={styles['contact-wrapper']}
@@ -71,7 +71,7 @@ const Contact = forwardRef((props, ref) => {
               </svg>
               <p className={styles.address}>
                 108 Fancy Ln &mdash; Shop 5 <br />
-                Snootsville, NC 26504
+                Snootsville, NC 26504.
               </p>
             </div>
             {/* End contact link */}
@@ -145,7 +145,7 @@ const Contact = forwardRef((props, ref) => {
                   strokeWidth='16'
                 ></line>
               </svg>
-              <p>front-desk@theblackpearl.com</p>
+              <p>front-desk@theblackpearl.com.</p>
             </div>
             {/* end email link */}
           </a>
@@ -188,7 +188,7 @@ const Contact = forwardRef((props, ref) => {
                   strokeWidth='16'
                 ></path>
               </svg>
-              <p>(123) 456 - 7890</p>
+              <p>(123) 456-7890.</p>
             </div>
             {/* End phone link */}
           </a>

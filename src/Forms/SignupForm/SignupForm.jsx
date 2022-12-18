@@ -86,15 +86,15 @@ const SignupForm = forwardRef((props, ref) => {
       {isSignedUp ? (
         <>
           {/* Render sign in success if signed in */}
-          <h2>You are a member</h2>
-          <h3>Congratulations, you signed up successfully</h3>
+          <h2>You are a member.</h2>
+          <h3>Congratulations, you signed up successfully.</h3>
           <FormSuccess />
         </>
       ) : (
         // only render form if not signed in
         <>
-          <h2>Become a member</h2>
-          <h3>All fields are required</h3>
+          <h2>Become a member.</h2>
+          <h3>All fields are required.</h3>
           <div
             className={styles['form-wrapper']}
             role='presentation'
@@ -107,14 +107,14 @@ const SignupForm = forwardRef((props, ref) => {
                   title='Opens in your default mail app'
                   className={styles.error}
                 >
-                  There was an error signing you up, please contact us by email
+                  There was an error signing you up, please contact us by email.
                 </a>
               )}
               <label
                 htmlFor='email'
                 disabled={formState.disabled}
               >
-                Email *
+                Email.
               </label>
               <div
                 className={formFields.email ? styles.correct : styles.incorrect}
@@ -127,7 +127,7 @@ const SignupForm = forwardRef((props, ref) => {
                   type='email'
                   id='email'
                   name='email'
-                  placeholder='me@example.com'
+                  placeholder='me@example.com.'
                   autoComplete='off'
                   required
                 />
@@ -136,7 +136,7 @@ const SignupForm = forwardRef((props, ref) => {
                 htmlFor='password'
                 disabled={formState.disabled}
               >
-                Password *
+                Password.
               </label>
               <div
                 className={
@@ -150,7 +150,7 @@ const SignupForm = forwardRef((props, ref) => {
                   type='password'
                   id='password'
                   name='password'
-                  placeholder='Enter a password'
+                  placeholder='Enter a password.'
                   minLength='6'
                   autoComplete='off'
                   required
@@ -169,7 +169,7 @@ const SignupForm = forwardRef((props, ref) => {
                     : true
                 }
               >
-                {formState.submitting ? 'Submitting...' : 'Sign up now'}
+                {formState.submitting ? 'Submitting...' : 'Sign up now.'}
               </Button>
             </form>
             <Image

@@ -55,7 +55,7 @@ label {
 }
 
 .correct::after {
-  content: 'Valid';
+  content: 'Valid.';
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -65,7 +65,7 @@ label {
 }
 
 .incorrect::after {
-  content: 'Not Valid';
+  content: 'Not Valid.';
   color: rgba(0, 0, 0, 0.7);
 }
 

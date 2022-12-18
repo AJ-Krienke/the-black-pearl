@@ -9,13 +9,13 @@ const Hero = props => {
   return (
     <section
       className={`${styles['hero-section']} grid grid--hero`}
-      name='Welcome to the Black Pearl'
+      name='Welcome to the Black Pearl.'
     >
       <div
         className={styles['heading-wrapper']}
         role='presentation'
       >
-        <h1 className={styles['hero-heading']}>The Black Pearl</h1>
+        <h1 className={styles['hero-heading']}>The Black Pearl.</h1>
       </div>
       <div
         className={styles['button-wrapper']}
@@ -25,14 +25,14 @@ const Hero = props => {
           className={styles['call-to-action']}
           onClick={props.onContactClick}
         >
-          Contact Information
+          Contact Information.
         </Button>
         {!isSignedUp && (
           <Button
             className={styles['call-to-action']}
             onClick={props.onSignupClick}
           >
-            Become a member
+            Become a member.
           </Button>
         )}
       </div>

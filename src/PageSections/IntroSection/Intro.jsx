@@ -12,9 +12,9 @@ const Intro = props => {
       className={styles['intro-section']}
       name='Introduction'
     >
-      <h2>The Black Pearl</h2>
+      <h2>The Black Pearl.</h2>
       <h3>
-        At "The Black Pearl" You can expect an experience of class, and a
+        At 'The Black Pearl' you can expect an experience of class, and a
         lifestyle of luxury.
       </h3>
       <div
@@ -31,7 +31,7 @@ const Intro = props => {
           </p>
           <p>
             Fine international cuisine, wines from the top regions in the world,
-            and cocktails that are inspired by the classics and given a modern
+            and cocktails that are inspired by the classics then given a modern
             twist. You will have a truly unique experience with us.
           </p>
         </div>
@@ -40,7 +40,7 @@ const Intro = props => {
           role='presentation'
         >
           <figure>
-            <figcaption>Our Experts</figcaption>
+            <figcaption>Our Experts.</figcaption>
             <div
               className={styles['intro-images']}
               role='presentation'
@@ -48,17 +48,17 @@ const Intro = props => {
               <Image
                 src={chef}
                 height='110'
-                title='Basil Pastason | Head Chef'
+                title='Basil Pastason. Head Chef'
               />
               <Image
                 src={mixologist}
                 height='110'
-                title='Salty Rimmington | Master Mixologist'
+                title='Salty Rimmington. Master Mixologist'
               />
               <Image
                 src={sommellier}
                 height='110'
-                title='Brandy Winehouse | Sommellier'
+                title='Brandy Winehouse. Sommellier'
               />
             </div>
           </figure>

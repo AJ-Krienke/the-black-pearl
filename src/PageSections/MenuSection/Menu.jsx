@@ -7,10 +7,10 @@ import wineMenu from './menus/wine-menu.pdf';
 const Menu = props => {
   return (
     <section name='menu'>
-      <h2>Our Menus</h2>
+      <h2>Our Menus.</h2>
       <h3>
-        Expertly created menus with a treasure trove of treats for you to choose
-        from
+        Expertly created menus, with a treasure trove of treats for you to
+        choose from.
       </h3>
       <div
         className={styles['menu-wrapper']}
@@ -26,7 +26,7 @@ const Menu = props => {
             className={`${styles['menu-card']} ${styles['food-card']}`}
             role='presentation'
           >
-            <p className={styles['menu-link']}>Food Menu</p>
+            <p className={styles['menu-link']}>Food Menu.</p>
           </div>
         </a>
         <a
@@ -39,7 +39,7 @@ const Menu = props => {
             className={`${styles['menu-card']} ${styles['dessert-card']}`}
             role='presentation'
           >
-            <p className={styles['menu-link']}>Dessert Menu</p>
+            <p className={styles['menu-link']}>Dessert Menu.</p>
           </div>
         </a>
         <a
@@ -52,7 +52,7 @@ const Menu = props => {
             className={`${styles['menu-card']} ${styles['wine-card']}`}
             role='presentation'
           >
-            <p className={styles['menu-link']}>Wine Menu</p>
+            <p className={styles['menu-link']}>Wine Menu.</p>
           </div>
         </a>
         <a
@@ -65,7 +65,7 @@ const Menu = props => {
             className={`${styles['menu-card']} ${styles['drink-card']}`}
             role='presentation'
           >
-            <p className={styles['menu-link']}>Drink Menu</p>
+            <p className={styles['menu-link']}>Drink Menu.</p>
           </div>
         </a>
       </div>
