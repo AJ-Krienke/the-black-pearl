@@ -32,4 +32,7 @@ Web accessibility is maintained in this website using semantic html to build the
 
 Minimal libraries will be used, to keep the site as lean as possible. A strong emphasis is placed on reactivity (otherwise what would the point of using React be...).
 
+<h2>Feel free to look around my profile and see what I have been up to</h2>
+<p>If you want to reach out, I'm on <a title='Opens my LinkedIn profile' href="https://www.linkedin.com/in/aj-krienke-ba6bb1202">LinkedIn</a>, and <a title='Opens my twitter profile' href="https://twitter.com/AJ_Krienke">Twitter</a>. For my deployed project, check out the site on <a title='Opens my project on netlify.com' href='https://flourishing-conkies-00959a.netlify.app/'>Netlify</a></p>
+
 So, without further ado, it's time to get on with it.
