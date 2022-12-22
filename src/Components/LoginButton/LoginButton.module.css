@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 10;
+  z-index: 5;
 }
 
 .modal {
@@ -10,4 +10,11 @@
   inset: 0;
   background-color: white;
   z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.modal-content {
+  margin: 0 auto;
+  width: min(50rem, 100%);
 }

@@ -14,8 +14,8 @@ import LoginButton from './Components/LoginButton/LoginButton';
 const LandingPage = props => {
   const [isSignedUp, setIsSignedUp] = useState(false);
 
-  const signupRef = useRef();
-  const contactRef = useRef();
+  const signupRef = useRef(null);
+  const contactRef = useRef(null);
 
   const signupClickHandler = () => {
     signupRef.current.focus();
@@ -28,12 +28,13 @@ const LandingPage = props => {
   return (
     <React.Fragment>
       <SignupContext.Provider value={[isSignedUp, setIsSignedUp]}>
-        <LoginButton />
         <header>
           <Hero
             onContactClick={contactClickHandler}
             onSignupClick={signupClickHandler}
-          ></Hero>
+          >
+            <LoginButton />
+          </Hero>
         </header>
         <main>
           <Intro />

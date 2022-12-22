@@ -4,73 +4,10 @@
   align-items: center;
 }
 
-.form {
-  width: 100%;
-  padding: 2rem;
-  padding-right: 4.6rem;
-}
-
 .form-image {
   opacity: 0.8;
   filter: sepia(0.3);
   width: min(50%, 50vw);
-}
-
-.error {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-underline-offset: 0.8rem;
-  display: block;
-  padding: 1.4rem;
-  width: 100%;
-  color: rgb(87, 0, 0);
-  background-color: rgba(179, 0, 0, 0.2);
-}
-
-label,
-input {
-  display: block;
-}
-
-input {
-  width: 100%;
-  font-size: 1.4rem;
-  padding: 0.6rem;
-}
-
-input::placeholder {
-  color: #444;
-  font-size: 1.2rem;
-}
-
-label {
-  font-size: 1.6rem;
-  margin-top: 2rem;
-}
-
-.correct input {
-  border: 1px solid rgb(0, 125, 0);
-  background-color: rgba(0, 125, 0, 0.2);
-}
-
-.correct::after {
-  content: 'Valid.';
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.incorrect input {
-  border: 1px solid rgb(179, 0, 0);
-  background-color: rgba(179, 0, 0, 0.2);
-}
-
-.incorrect::after {
-  content: 'Not Valid.';
-  color: rgba(0, 0, 0, 0.7);
-}
-
-:disabled {
-  opacity: 0.6;
 }
 
 @media (max-width: 40em) {
