@@ -1,7 +1,6 @@
 //----------------TODO
 //
-// Modal needs to cover page or
-// prevent scrolling, etc
+// Add input focus to modal screen
 //
 //------------End TODO
 
@@ -10,7 +9,6 @@ import { createPortal } from 'react-dom';
 
 import SignupContext from '../../Contexts/SignupContext';
 import EmailPasswordForm from '../../Forms/EmailPasswordForm/EmailPasswordForm';
-
 import Button from '../ButtonComponent/Button';
 import styles from './LoginButton.module.css';
 

@@ -22,19 +22,20 @@ const LandingPage = props => {
   };
 
   const contactClickHandler = () => {
+    // contactRef is a non-focusable element
+    // scroll to it instead
     contactRef.current.scrollIntoView();
   };
 
   return (
     <React.Fragment>
       <SignupContext.Provider value={[isSignedUp, setIsSignedUp]}>
+        <LoginButton />
         <header>
           <Hero
             onContactClick={contactClickHandler}
             onSignupClick={signupClickHandler}
-          >
-            <LoginButton />
-          </Hero>
+          />
         </header>
         <main>
           <Intro />
