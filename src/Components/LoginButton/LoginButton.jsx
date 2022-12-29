@@ -1,6 +1,7 @@
 //----------------TODO
 //
-// Add input focus to modal screen
+// Refactor modal to seprate component
+// work modal focus into modal component
 //
 //------------End TODO
 
