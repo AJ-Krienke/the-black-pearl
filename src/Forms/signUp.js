@@ -5,7 +5,6 @@ const signUp = ({
   formState,
   setFormState,
   setIsSignedUp,
-  setModal,
 }) => {
   // It is perfectly safe to have the API key here, remote clients need this API key to access the signup API for this project
   const URL = `https://identitytoolkit.googleapis.com/v1/accounts:${firebaseMethod}?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ`;
@@ -48,11 +47,6 @@ const signUp = ({
               setFormState,
               setIsSignedUp,
             }); // End signin with signup function call
-
-            // If the set modal function exists
-            // This is called from the signin modal
-            // close it on successful signup
-            setModal && setModal(false);
           } else {
             // if firebase returned an error that wasn't
             // email exists, create an error state
