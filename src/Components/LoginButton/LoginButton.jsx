@@ -1,25 +1,11 @@
-//----------------TODO
-//
-// Refactor modal to seprate component
-// work modal focus into modal component
-//
-//------------End TODO
-
-import { useState, useContext } from 'react';
-import { createPortal } from 'react-dom';
-
+import { useContext } from 'react';
 import SignupContext from '../../Contexts/SignupContext';
-import EmailPasswordForm from '../../Forms/EmailPasswordForm/EmailPasswordForm';
 import Button from '../ButtonComponent/Button';
 import styles from './LoginButton.module.css';
+import React from 'react';
 
 const LoginButton = props => {
   const [isSignedIn] = useContext(SignupContext);
-  const [modal, setModal] = useState(false);
-
-  const loginClickHandler = event => {
-    setModal(true);
-  };
 
   return (
     <>
@@ -27,30 +13,12 @@ const LoginButton = props => {
         <Button
           type='button'
           className={styles['login-button']}
-          onClick={loginClickHandler}
+          onClick={props.onClick}
           title='Already a member? Login here'
         >
           Login
         </Button>
       )}
-      {modal &&
-        createPortal(
-          <div
-            className={styles.modal}
-            role='presentation'
-          >
-            <div
-              className={styles['modal-content']}
-              role='presentation'
-            >
-              <EmailPasswordForm
-                setModal={setModal}
-                text={'Sign in now.'}
-              />
-            </div>
-          </div>,
-          document.body
-        )}
     </>
   );
 };
