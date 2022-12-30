@@ -7,7 +7,7 @@ import styles from './EmailPasswordForm.module.css';
 
 const EmailPasswordForm = forwardRef((props, ref) => {
   const [isSignedUp, setIsSignedUp] = useContext(SignupContext);
-  const setModal = props.setModal;
+  const toggleModal = props.toggleModal;
 
   const [formFields, setFormFields] = useState({
     email: null,
@@ -65,7 +65,7 @@ const EmailPasswordForm = forwardRef((props, ref) => {
       formState,
       setFormState,
       setIsSignedUp,
-      setModal,
+      toggleModal,
     });
   };
 
@@ -95,6 +95,7 @@ const EmailPasswordForm = forwardRef((props, ref) => {
           >
             <input
               disabled={formState.disabled}
+              autoFocus={props.autoFocus}
               ref={ref}
               onChange={emailChangeHandler}
               type='email'
@@ -141,7 +142,7 @@ const EmailPasswordForm = forwardRef((props, ref) => {
           >
             {formState.submitting ? 'Submitting...' : props.text}
           </Button>
-          {setModal && <Button onClick={() => setModal(false)}>Close.</Button>}
+          {toggleModal && <Button onClick={toggleModal}>Close.</Button>}
         </form>
       )}
     </>
