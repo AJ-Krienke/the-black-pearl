@@ -132,9 +132,8 @@ const EmailPasswordForm = forwardRef((props, ref) => {
             onClick={onFormSubmitHandler}
             disabled={
               // If the email and password aren't
-              // valid, you can't submit
-              // or if the form is submitting
-              // you also cant submit
+              // valid or if the form is
+              // submitting, you cant submit
               (formFields.email && formFields.password) || formState.submitting
                 ? false
                 : true
