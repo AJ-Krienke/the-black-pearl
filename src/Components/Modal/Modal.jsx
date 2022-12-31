@@ -6,6 +6,7 @@ const Modal = props => {
       <div
         className={styles['modal-overlay']}
         role='presentation'
+        onClick={props.onClick}
       >
         {props.children}
       </div>

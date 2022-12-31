@@ -69,7 +69,7 @@ const LandingPage = props => {
           </>
         ) : (
           <>
-            <Modal>
+            <Modal onClick={toggleModal}>
               <EmailPasswordForm
                 toggleModal={toggleModal}
                 text='Log in now.'
