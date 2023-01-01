@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 
 import styles from './Recommendation.module.css';
 
@@ -46,16 +46,30 @@ const wineList = [
   },
 ];
 
+const wineListReducer = (state, action) => {
+  switch (action.type) {
+    case 'type':
+      return state.filter(currentWine => currentWine.type === action.value);
+    case 'characteristic':
+      return state.filter(
+        currentWine => currentWine.characteristic === action.value
+      );
+    case 'body':
+      return state.filter(currentWine => currentWine.body === action.value);
+    default:
+      return;
+  }
+};
+
 const Recommendation = props => {
+  const [wines, updateWineList] = useReducer(wineListReducer, wineList);
   // Recommendation app
   // this should be a database based query
-  const [wines, setWines] = useState(wineList);
 
   const handleChoiceClick = event => {
-    const selection = event.target.textContent;
-    // add choice to an array
-    setWines(previousState => {
-      return previousState.filter(wine => wine.type === selection);
+    updateWineList({
+      type: event.target.className,
+      value: event.target.textContent,
     });
   };
 
@@ -82,6 +96,7 @@ const Recommendation = props => {
           {options.type.map(choice => (
             <button
               key={choice}
+              className='type'
               onClick={handleChoiceClick}
             >
               {choice}
@@ -93,6 +108,7 @@ const Recommendation = props => {
           {options.characteristic.map(choice => (
             <button
               key={choice}
+              className='characteristic'
               onClick={handleChoiceClick}
             >
               {choice}
@@ -104,6 +120,7 @@ const Recommendation = props => {
           {options.body.map(choice => (
             <button
               key={choice}
+              className='body'
               onClick={handleChoiceClick}
             >
               {choice}
