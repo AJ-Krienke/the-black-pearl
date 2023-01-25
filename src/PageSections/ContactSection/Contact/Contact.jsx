@@ -84,7 +84,7 @@ const Contact = forwardRef((props, ref) => {
         >
           <p>Email us at:</p>
           <a
-            href='mailto:front-desk@theblackpearl.com'
+            href='mailto:front-desk@theblackpearl.fake'
             title='Opens in your default email app'
           >
             <div
@@ -145,7 +145,7 @@ const Contact = forwardRef((props, ref) => {
                   strokeWidth='16'
                 ></line>
               </svg>
-              <p>front-desk@theblackpearl.com.</p>
+              <p>front-desk@theblackpearl.fake.</p>
             </div>
             {/* end email link */}
           </a>
