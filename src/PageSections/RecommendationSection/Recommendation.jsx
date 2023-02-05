@@ -1,8 +1,13 @@
 // ------ TODO -----------
 //
+// Create a context to hold the
+// user signin token. Update the
+// sign in functioanlity to use it
+//
+//
+//
 // Create context with DB info
-// Move wine list to DB
-// Fetch list from DB
+// Fetch wine list from DB
 // Add Cocktail List to DB
 //
 // ------ END TODO -------
@@ -10,87 +15,45 @@ import { useReducer, useState, useEffect } from 'react';
 
 import styles from './Recommendation.module.css';
 
-const wineList = [
-  {
-    id: 0,
-    name: 'Cabernet Sauvignon',
-    type: 'Red',
-    characteristic: 'Dry',
-    body: 'Full',
-  },
-  {
-    id: 1,
-    name: 'Merlot',
-    type: 'Red',
-    characteristic: 'Dry',
-    body: 'Medium',
-  },
-  {
-    id: 2,
-    name: 'Syrah',
-    type: 'Red',
-    characteristic: 'Dry',
-    body: 'Full',
-  // },
-  {
-    id: 3,
-    name: 'Pinot Noir',
-    type: 'Red',
-    characteristic: 'Dry',
-    body: 'Light',
-  },
-  {
-    id: 4,
-    name: 'Sangiovese',
-    type: 'Red',
-    characteristic: 'Dry',
-    body: 'Full',
-  },
-  {
-    id: 5,
-    name: 'Red Blend',
-    type: 'Red',
-    characteristic: 'Dry',
-    body: 'Full',
-  },
-  {
-    id: 6,
-    name: 'Sauvignon Blanc',
-    type: 'White',
-    characteristic: 'Dry',
-    body: 'Full',
-  },
-  {
-    id: 7,
-    name: 'Chardonnay',
-    type: 'White',
-    characteristic: 'Dry',
-    body: 'Medium',
-  },
-  {
-    id: 8,
-    name: 'Pinot Grigio',
-    type: 'White',
-    characteristic: 'Dry',
-    body: 'Light',
-  },
-  {
-    id: 9,
-    name: 'Prosecco',
-    type: 'Sparkling',
-    characteristic: 'Dry',
-    body: 'Light',
-  },
-  {
-    id: 10,
-    name: 'Champagne',
-    type: 'Sparkling',
-    characteristic: 'Dry',
-    body: 'Full',
-  },
-];
+// Data to use in the fetch operation
+const URL =
+  'https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=AIzaSyCErl_9VCiStpmzLgWSGe7GQIzWsZISweQ';
+
+// `https://firestore.googleapis.com/v1/projects/the-black-pearl-a24dd/databases/wines`;
+
+const INIT = {
+  method: 'POST',
+  body: JSON.stringify({
+    token: '',
+    returnSecureToken: true,
+  }), // End body
+}; // End INIT
+
+const HEADERS = {
+  'Content-Type': 'application/json',
+}; // End HEADERS
+
+// Get secure token
+const authToken = fetch(URL, INIT, HEADERS)
+  .then(response => {
+    return response.json();
+  }) // End response 'then'
+
+  .then(data => {
+    console.log(data);
+  })
+  .catch(console.log('error'));
+
+const wineList = [];
 
 const wineListReducer = (state, action) => {
+  // This reducer takes the selected
+  // type, characteristic, or body
+  // and filters the winelist to only
+  // items with the selected attributes
+  // if the action type is reset, the
+  // reducer returns the original full
+  // wine list
   switch (action.type) {
     case 'reset':
       return wineList;
