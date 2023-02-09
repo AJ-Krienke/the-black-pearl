@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 // ---------- Page Sections
 
@@ -28,6 +28,10 @@ const LandingPage = props => {
 
   const signupRef = useRef(null);
   const contactRef = useRef(null);
+
+  useEffect(() => {
+    if (sessionStorage.isLoggedIn) setIsSignedUp(true);
+  }, []);
 
   const signupClickHandler = () => {
     signupRef.current.focus();

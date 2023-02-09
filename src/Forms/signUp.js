@@ -48,6 +48,7 @@ const signUp = ({
               formState,
               setFormState,
               setIsSignedUp,
+              setSecureToken,
               toggleModal,
             }); // End signin with signup function call
           } else {
@@ -68,6 +69,7 @@ const signUp = ({
           // was successful
           setIsSignedUp(true);
           setSecureToken(data.idToken);
+          sessionStorage.setItem('isLoggedIn', true);
           setFormState({
             ...formState,
             disabled: true,
