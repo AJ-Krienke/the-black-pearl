@@ -23,7 +23,6 @@ import EmailPasswordForm from './Forms/EmailPasswordForm/EmailPasswordForm';
 
 const LandingPage = props => {
   const [isSignedUp, setIsSignedUp] = useState(false);
-  const [secureToken, setSecureToken] = useState(null);
   const [modal, setModal] = useState(false);
 
   const signupRef = useRef(null);
@@ -49,9 +48,7 @@ const LandingPage = props => {
 
   return (
     <React.Fragment>
-      <SignupContext.Provider
-        value={[isSignedUp, setIsSignedUp, secureToken, setSecureToken]}
-      >
+      <SignupContext.Provider value={[isSignedUp, setIsSignedUp]}>
         {!modal ? (
           <>
             <LoginButton onClick={toggleModal} />

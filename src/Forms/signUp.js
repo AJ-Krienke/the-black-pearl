@@ -5,7 +5,6 @@ const signUp = ({
   formState,
   setFormState,
   setIsSignedUp,
-  setSecureToken,
   toggleModal,
 }) => {
   // It is perfectly safe to have the API key here, remote clients need this API key to access the signup API. The permissions to perform CRUD operations are set on the database itself so unless a bad actor were to secure the administrator credentials to sign in to firebase directly, they would be unable to perform any actions outside of the specified permissions.
@@ -48,7 +47,6 @@ const signUp = ({
               formState,
               setFormState,
               setIsSignedUp,
-              setSecureToken,
               toggleModal,
             }); // End signin with signup function call
           } else {
@@ -68,8 +66,8 @@ const signUp = ({
           // If there isn't an error signup
           // was successful
           setIsSignedUp(true);
-          setSecureToken(data.idToken);
           sessionStorage.setItem('isLoggedIn', true);
+          sessionStorage.setItem('idToken', data.idToken);
           setFormState({
             ...formState,
             disabled: true,
