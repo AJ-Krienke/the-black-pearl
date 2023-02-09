@@ -6,7 +6,8 @@ import Button from '../../Components/ButtonComponent/Button';
 import styles from './EmailPasswordForm.module.css';
 
 const EmailPasswordForm = forwardRef((props, ref) => {
-  const [isSignedUp, setIsSignedUp] = useContext(SignupContext);
+  const [isSignedUp, setIsSignedUp, , setSecureToken] =
+    useContext(SignupContext);
   const toggleModal = props.toggleModal;
 
   const [formFields, setFormFields] = useState({
@@ -52,11 +53,9 @@ const EmailPasswordForm = forwardRef((props, ref) => {
   };
 
   const onFormSubmitHandler = event => {
-    // The signin state is currently non persistent
-    // That is intentional because the users
-    // are expected to be testing it, not actually
-    // using the site
-
+    // The signup state needs to persist to be able to
+    // get a secure token to fetch winelist once logged
+    // in and navigatedto the member page
     event.preventDefault();
     signUp({
       email: formFields.email,
@@ -65,6 +64,7 @@ const EmailPasswordForm = forwardRef((props, ref) => {
       formState,
       setFormState,
       setIsSignedUp,
+      setSecureToken,
       toggleModal,
     });
   };

@@ -3,16 +3,17 @@
 // Create a context to hold the
 // user signin token. Update the
 // sign in functioanlity to use it
-//
-//
+// use that signed in token for the
+// fetch request to get the wines
 //
 // Create context with DB info
 // Fetch wine list from DB
 // Add Cocktail List to DB
 //
 // ------ END TODO -------
-import { useReducer, useState, useEffect } from 'react';
+import { useReducer, useState, useEffect, useContext } from 'react';
 
+import SignupContext from '../../Contexts/SignupContext';
 import styles from './Recommendation.module.css';
 
 // Data to use in the fetch operation
@@ -21,30 +22,11 @@ const URL =
 
 // `https://firestore.googleapis.com/v1/projects/the-black-pearl-a24dd/databases/wines`;
 
-const INIT = {
-  method: 'POST',
-  body: JSON.stringify({
-    token: '',
-    returnSecureToken: true,
-  }), // End body
-}; // End INIT
-
 const HEADERS = {
   'Content-Type': 'application/json',
 }; // End HEADERS
 
-// Get secure token
-const authToken = fetch(URL, INIT, HEADERS)
-  .then(response => {
-    return response.json();
-  }) // End response 'then'
-
-  .then(data => {
-    console.log(data);
-  })
-  .catch(console.log('error'));
-
-const wineList = [];
+const wineList = () => {};
 
 const wineListReducer = (state, action) => {
   // This reducer takes the selected
@@ -71,6 +53,14 @@ const wineListReducer = (state, action) => {
 };
 
 const Recommendation = props => {
+  const { secureToken } = useContext(SignupContext);
+  const INIT = {
+    method: 'POST',
+    body: JSON.stringify({
+      token: secureToken,
+      returnSecureToken: true,
+    }), // End body
+  }; // End INIT
   const [wines, updateWineList] = useReducer(wineListReducer, wineList);
   const [options, setOptions] = useState({
     type: [],
@@ -79,6 +69,10 @@ const Recommendation = props => {
   });
   // Recommendation app
   // this should be a database based query
+
+  // fetch(URL, INIT, HEADERS)
+  //   .then(response => response.json())
+  //   .then(data => console.log(data));
 
   useEffect(() => {
     // Displayed list needs to update
